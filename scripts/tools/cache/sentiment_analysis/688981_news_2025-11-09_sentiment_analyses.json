@@ -1,0 +1,1234 @@
+{
+  "analysis_date": "2025-11-09",
+  "total_news_count": 30,
+  "overall_sentiment": {
+    "label": "neutral",
+    "score": 0.55,
+    "confidence": 0.37
+  },
+  "sentiment_distribution": {
+    "positive": 0,
+    "neutral": 30,
+    "negative": 0
+  },
+  "time_series_sentiment": {
+    "recent_7d": 0.55,
+    "recent_30d": 0.55,
+    "all_time": 0.55
+  },
+  "detailed_analyses": [
+    {
+      "title": "突发！140亿固态电池概念股董事及高级管理人员被立案|盘后公告集锦",
+      "content": "【中芯国际：各方正在积极推进购买中芯北方49%股权相关工作】中芯国际688981.SH)公告称，此前公司拟发行股份购买中芯北方集成电路制造",
+      "publish_time": "2025-11-07 21:17:50",
+      "source": "财联社",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 31,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.69,
+        "confidence": 0.48,
+        "matched_words_count": 1,
+        "total_words_count": 62,
+        "matched_words": [
+          "积极"
+        ],
+        "detailed_words": [
+          {
+            "word": "积极",
+            "type": "positive",
+            "strength": "weak",
+            "weight": 0.6,
+            "position": 8,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.58,
+        "confidence": 0.27
+      }
+    },
+    {
+      "title": "科创板晚报|中芯国际：各方正积极推进购买中芯北方49%股权 恒运昌科创板IPO下周上会",
+      "content": "【科创板公司】中芯国际：各方正在积极推进购买中芯北方49%股权相关工作中芯国际688981.SH)公告称，",
+      "publish_time": "2025-11-07 21:07:42",
+      "source": "科创板日报",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.69,
+        "confidence": 0.49,
+        "matched_words_count": 1,
+        "total_words_count": 39,
+        "matched_words": [
+          "积极"
+        ],
+        "detailed_words": [
+          {
+            "word": "积极",
+            "type": "positive",
+            "strength": "weak",
+            "weight": 0.6,
+            "position": 12,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.69,
+        "confidence": 0.48,
+        "matched_words_count": 1,
+        "total_words_count": 46,
+        "matched_words": [
+          "积极"
+        ],
+        "detailed_words": [
+          {
+            "word": "积极",
+            "type": "positive",
+            "strength": "weak",
+            "weight": 0.6,
+            "position": 13,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.69,
+        "confidence": 0.49
+      }
+    },
+    {
+      "title": "中芯国际：各方正在积极推进购买中芯北方49%股权相关工作",
+      "content": "中芯国际688981.SH)公告称，此前公司拟发行股份购买中芯北方集成电路制造（北京）有限公司（简称“中芯北方”）49%",
+      "publish_time": "2025-11-07 17:58:36",
+      "source": "科创板日报",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.69,
+        "confidence": 0.49,
+        "matched_words_count": 1,
+        "total_words_count": 26,
+        "matched_words": [
+          "积极"
+        ],
+        "detailed_words": [
+          {
+            "word": "积极",
+            "type": "positive",
+            "strength": "weak",
+            "weight": 0.6,
+            "position": 8,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 51,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.61,
+        "confidence": 0.29
+      }
+    },
+    {
+      "title": "芯密科技：叔公堂舅皆股东 客户供应商集中度均超7成",
+      "content": "在半导体行业有丰富经验，曾任职于中芯国际（688981），并在2005年至2020年期间负责某国际顶级密封品牌在中国市场的销售与技术应用",
+      "publish_time": "2025-11-07 17:57:38",
+      "source": "财中社",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 23,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 64,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "42股特大单净流入资金超2亿元",
+      "content": "中芯国际122.11-2.19-5.33电子300803指南针132.24-3.19-4.84计算机601360三六零12.38",
+      "publish_time": "2025-11-07 17:46:09",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 15,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 53,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "67只科创板股票跻身百元股阵营",
+      "content": "中芯国际122.11-2.191.91电子688630芯碁微装121.07-0.133.61机械设备688686奥普特120.80",
+      "publish_time": "2025-11-07 17:08:05",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 15,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 56,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "百元股数量达152只  较上一日减少3只",
+      "content": "中芯国际122.11-2.190.02电子002779中坚科技122.00-2.131.45机械设备301600慧翰股份121.27",
+      "publish_time": "2025-11-07 17:07:58",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "negative",
+        "sentiment_score": 0.25,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 17,
+        "matched_words": [
+          "减少"
+        ],
+        "detailed_words": [
+          {
+            "word": "减少",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 14,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 57,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.35,
+        "confidence": 0.47
+      }
+    },
+    {
+      "title": "国家大基金持股概念涨2.67%，主力资金净流入这些股",
+      "content": "中芯国际4.233.6668848.717.60688012中微公司4.263.0636841.136.32688521芯原股份",
+      "publish_time": "2025-11-06 18:03:33",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 24,
+        "matched_words": [
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 9,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 56,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.3
+      }
+    },
+    {
+      "title": "科创板高价股排行榜",
+      "content": "中芯国际124.854.233.66电子688361中科飞测124.322.572.60电子688686奥普特122.981.010.74",
+      "publish_time": "2025-11-06 18:02:57",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 9,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 60,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "深沪北百元股数量达155只，科创板股票占45.16%",
+      "content": "中芯国际124.854.230.04电子002779中坚科技124.665.332.52机械设备301600慧翰股份124.514.499.92",
+      "publish_time": "2025-11-06 18:02:43",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 24,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 63,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "科创50ETF指数(588040)午盘涨超2.5%，光芯片板块供需紧张催动行情向上",
+      "content": "权重股分别为寒武纪(688256)、海光信息(688041)、中芯国际688981、",
+      "publish_time": "2025-11-06 13:57:00",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.56,
+        "matched_words_count": 2,
+        "total_words_count": 36,
+        "matched_words": [
+          "涨",
+          "向上"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 17,
+            "negated": false
+          },
+          {
+            "word": "向上",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 35,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 35,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.7,
+        "confidence": 0.33
+      }
+    },
+    {
+      "title": "光芯片板块供需紧张催动行情向上，科创50ETF指数午盘涨超2.5%",
+      "content": "权重股分别为寒武纪(688256)、海光信息(688041)、中芯国际688981、",
+      "publish_time": "2025-11-06 13:36:57",
+      "source": "东方财富证券",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.56,
+        "matched_words_count": 2,
+        "total_words_count": 30,
+        "matched_words": [
+          "向上",
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "向上",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 13,
+            "negated": false
+          },
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 25,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 35,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.7,
+        "confidence": 0.33
+      }
+    },
+    {
+      "title": "存储现阶段已进入卖方市场，科创芯片ETF指数涨超4%",
+      "content": "8041)、寒武纪(688256)、澜起科技(688008)、中芯国际688981、",
+      "publish_time": "2025-11-06 13:35:48",
+      "source": "东方财富证券",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 25,
+        "matched_words": [
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 21,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 33,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "涨超1.4%！自带杠铃策略的上证180ETF指数基金(530280)备受关注",
+      "content": "3259)、寒武纪(688256)、工业富联(601138)、中芯国际688981、",
+      "publish_time": "2025-11-06 11:51:26",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 34,
+        "matched_words": [
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 0,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 33,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "消费电子ETF(561600)涨超1.4%，消费电子持续受益于AI发展",
+      "content": "2475)、寒武纪(688256)、工业富联(601138)、中芯国际688981、",
+      "publish_time": "2025-11-06 11:23:00",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 31,
+        "matched_words": [
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 13,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 33,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "科创50增强ETF(588460)盘中涨超3%，亚马逊与OpenAI签380亿美元协议",
+      "content": "权重股分别为寒武纪(688256)、海光信息(688041)、中芯国际688981、",
+      "publish_time": "2025-11-06 11:14:44",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 40,
+        "matched_words": [
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 17,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 35,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "69只科创板股票跻身百元股阵营",
+      "content": "中芯国际119.78-0.082.43电子688190云路股份118.019.721.71有色金属688630芯碁微装116.78",
+      "publish_time": "2025-11-05 17:46:24",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 15,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 57,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "深沪北百元股排行榜",
+      "content": "中芯国际119.78-0.080.02电子301600慧翰股份119.163.355.88计算机002779中坚科技118.350",
+      "publish_time": "2025-11-05 17:15:09",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 9,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 57,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "科创板百元股达71只，寒武纪-U股价最高",
+      "content": "中芯国际119.88-0.272.39电子688630芯碁微装118.84-1.792.83机械设备688787海天瑞声118.50",
+      "publish_time": "2025-11-04 17:14:50",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 18,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 57,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "深沪北百元股数量达153只  电子行业占比最高",
+      "content": "中芯国际119.88-0.270.02电子301377鼎泰高科119.501.3823.02机械设备301031中熔电气118.88",
+      "publish_time": "2025-11-04 17:14:33",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 21,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 58,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "45.71亿元资金今日流出电子股",
+      "content": "中芯国际-3.203.74-111142.46688008澜起科技-2.334.17-49981.89300604长川科技",
+      "publish_time": "2025-11-03 20:59:02",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 15,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 51,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "深沪北百元股数量达163只，科创板股票占45.40%",
+      "content": "中芯国际120.21-3.200.04电子688037芯源微120.070",
+      "publish_time": "2025-11-03 20:58:50",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 24,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 32,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "科创板平均股价41.00元，6股股价超300元",
+      "content": "中芯国际120.21-3.203.74电子688037芯源微120.070.072.49电子688702盛科通信-U118.40",
+      "publish_time": "2025-11-03 20:58:31",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 21,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 55,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "消费电子ETF(561600)盘中翻红 近2周新增规模居可比基金首位",
+      "content": "2475)、寒武纪(688256)、工业富联(601138)、中芯国际688981、",
+      "publish_time": "2025-11-03 14:16:37",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 31,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 33,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "半导体ETF(159813)盘中净申购5800万份，三星将 DDR5 合约定价推迟至 11 月中旬",
+      "content": "权重股分别为寒武纪(688256)、海光信息(688041)、中芯国际688981、",
+      "publish_time": "2025-11-03 14:08:07",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 42,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 35,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "数字经济领跑经济增长，数字经济ETF(560800)盘中蓄势，机构：数字技术将会与实体经济深度融合",
+      "content": "跟涨；拓荆科技(688072)领跌，澜起科技(688008)、中芯国际688981跟跌。",
+      "publish_time": "2025-11-03 10:56:45",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 43,
+        "matched_words": [
+          "增长"
+        ],
+        "detailed_words": [
+          {
+            "word": "增长",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 8,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "negative",
+        "sentiment_score": 0.25,
+        "confidence": 0.53,
+        "matched_words_count": 3,
+        "total_words_count": 36,
+        "matched_words": [
+          "涨",
+          "跌",
+          "跌"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 1,
+            "negated": false
+          },
+          {
+            "word": "跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 13,
+            "negated": false
+          },
+          {
+            "word": "跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 35,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.55,
+        "confidence": 0.28
+      }
+    },
+    {
+      "title": "短期震荡不改长期慢牛趋势，自带杠铃策略的上证180ETF指数基金(530280)近1周涨幅同类第1",
+      "content": "3259)、寒武纪(688256)、工业富联(601138)、中芯国际688981、",
+      "publish_time": "2025-11-03 10:13:55",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.64,
+        "confidence": 0.47,
+        "matched_words_count": 2,
+        "total_words_count": 45,
+        "matched_words": [
+          "震荡",
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "震荡",
+            "type": "negative",
+            "strength": "weak",
+            "weight": -0.6,
+            "position": 2,
+            "negated": false
+          },
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 39,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 33,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.58,
+        "confidence": 0.28
+      }
+    },
+    {
+      "title": "未来5年智能终端成为流量新入口？消费电子ETF（561600）回调备受关注",
+      "content": "2475)、寒武纪(688256)、工业富联(601138)、中芯国际688981、",
+      "publish_time": "2025-11-03 10:08:15",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "negative",
+        "sentiment_score": 0.31,
+        "confidence": 0.49,
+        "matched_words_count": 1,
+        "total_words_count": 33,
+        "matched_words": [
+          "回调"
+        ],
+        "detailed_words": [
+          {
+            "word": "回调",
+            "type": "negative",
+            "strength": "weak",
+            "weight": -0.6,
+            "position": 28,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 33,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.39,
+        "confidence": 0.45
+      }
+    },
+    {
+      "title": "41股特大单净流入资金超2亿元",
+      "content": "77浪潮信息65.23-5.97-13.27计算机688981中芯国际124.18-3.40-12.99电子688008澜起科技1",
+      "publish_time": "2025-10-31 22:49:43",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 15,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 55,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "解密主力资金出逃股 连续5日净流出527股",
+      "content": "从主力资金净流出总规模来看，中芯国际主力资金净流出金额最大，连续5天累计净流出56.85亿元，中信证券紧随其后，6天累计净流出",
+      "publish_time": "2025-10-31 17:52:25",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 20,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 58,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    }
+  ],
+  "stock_code": "688981",
+  "data_source": "C:\\Users\\cgp24\\Desktop\\nlp_data_prep\\scripts\\tools\\cache\\news\\stock_news\\688981\\688981_news_2025-11-09.json"
+}

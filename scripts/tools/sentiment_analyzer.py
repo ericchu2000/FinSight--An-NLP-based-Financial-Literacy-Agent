@@ -1,8 +1,9 @@
 import json
 import os
+import glob
+import re
 from datetime import datetime
 from typing import Dict, List, Tuple, Any, Optional
-import re
 
 # 尝试导入 SnowNLP
 try:
@@ -438,6 +439,10 @@ class SentimentAnalyzer:
         return distribution
 
 
+# ----------------------------
+# Helper I/O utilities
+# ----------------------------
+
 def load_news_from_json(file_path: str) -> Dict[str, Any]:
     """从JSON文件加载新闻数据"""
     with open(file_path, 'r', encoding='utf-8') as f:
@@ -451,40 +456,86 @@ def save_analysis_result(result: Dict[str, Any], output_path: str):
     print(f"分析结果已保存到: {output_path}")
 
 
+# EN: ensure cache root is under scripts/tools/cache so files are consistently saved there
+CACHE_ROOT = os.path.join(os.path.dirname(__file__), "cache")
+
+
 def main():
     """主函数：加载新闻数据并进行情绪分析"""
-    
-    input_file = r"cache/news/stock_news/000300/000300_news_2025-11-07.json"
-    output_dir = r"cache/sentiment_analysis"
-    
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Run sentiment analysis on a news JSON file or latest cached news for a ticker."
+    )
+    parser.add_argument("--input-file", "-i", help="Path to a specific news JSON file (overrides --ticker).")
+    parser.add_argument("--ticker", "-t", help="Stock ticker to locate latest cached news (e.g. 601857).")
+    parser.add_argument("--output-dir", "-o", help="Output directory for sentiment JSON (defaults to scripts/tools/cache/sentiment_analysis).")
+    parser.add_argument("--use-snownlp", action="store_true", help="Enable SnowNLP hybrid mode if available.")
+    args = parser.parse_args()
+
+    # EN: determine input file. Priority: --input-file > --ticker latest cached > default example file
+    input_file = None
+    if args.input_file:
+        input_file = args.input_file
+        print(f"Using provided input file: {input_file}")
+    elif args.ticker:
+        ticker_dir = os.path.join(CACHE_ROOT, "news", "stock_news", args.ticker)
+        pattern = os.path.join(ticker_dir, f"{args.ticker}_news_*.json")
+        candidates = sorted(glob.glob(pattern))
+        if candidates:
+            input_file = candidates[-1]
+            print(f"Found latest cached news for ticker {args.ticker}: {input_file}")
+        else:
+            print(f"未在缓存中找到 {args.ticker} 的新闻文件: {ticker_dir}")
+            raise SystemExit(1)
+    else:
+        # fallback: keep previous hardcoded behavior but warn the user
+        print("Warning: no --input-file or --ticker provided, falling back to example file for 000300.")
+        input_file = os.path.join(CACHE_ROOT, "news", "stock_news", "000300", "000300_news_2025-11-07.json")
+        if not os.path.exists(input_file):
+            print(f"默认示例文件不存在: {input_file}. Please provide --input-file or --ticker.")
+            raise SystemExit(1)
+
+    # Determine output dir
+    if args.output_dir:
+        output_dir = args.output_dir
+    else:
+        output_dir = os.path.join(CACHE_ROOT, "sentiment_analysis")
+
     os.makedirs(output_dir, exist_ok=True)
-    
+
     print(f"正在加载新闻数据: {input_file}")
     news_data = load_news_from_json(input_file)
-    
-    # 创建分析器 - 使用SnowNLP + 自定义词典组合方案
-    use_snownlp = SNOWNLP_AVAILABLE
+
+    # 创建分析器 - use SnowNLP if requested and available
+    use_snownlp = args.use_snownlp and SNOWNLP_AVAILABLE
     print(f"\n使用分析方案: {'SnowNLP + 自定义词典混合方案' if use_snownlp else '词典法'}")
     print("添加金融领域专用词汇扩展: 是")
-    
+
     analyzer = SentimentAnalyzer(use_snownlp=use_snownlp, add_finance_words=True)
-    
+
     print("正在进行情绪分析...")
-    result = analyzer.analyze_news_list(news_data["news"])
-    
+    result = analyzer.analyze_news_list(news_data.get("news", []))
+
     # 添加元数据
-    result["stock_code"] = "000300"
+    stock_code = news_data.get("stock_code") or args.ticker
+    if not stock_code:
+        base = os.path.basename(input_file)
+        m = re.match(r"(\d{6})_news_", base)
+        if m:
+            stock_code = m.group(1)
+    result["stock_code"] = stock_code or "unknown"
     result["data_source"] = input_file
     result["method"] = "snownlp_hybrid" if use_snownlp else "dictionary_based"
     result["add_finance_words"] = True
-    
+
     # 保存结果 - 基于输入文件名生成输出文件名
     input_basename = os.path.basename(input_file)
-    input_filename_without_ext = os.path.splitext(input_basename)[0]  # 获取不含扩展名的文件名
+    input_filename_without_ext = os.path.splitext(input_basename)[0]
     output_filename = f"{input_filename_without_ext}_sentiment_analyses.json"
     output_file = os.path.join(output_dir, output_filename)
     save_analysis_result(result, output_file)
-    
+
     # 打印摘要结果
     print("\n" + "="*80)
     print("情绪分析结果摘要")
@@ -501,23 +552,23 @@ def main():
     print(f"  - 正面新闻: {result['sentiment_distribution']['positive']} 条")
     print(f"  - 中性新闻: {result['sentiment_distribution']['neutral']} 条")
     print(f"  - 负面新闻: {result['sentiment_distribution']['negative']} 条")
-    
+
     if result['time_series_sentiment']['recent_7d'] is not None:
         print(f"\n时间序列情绪:")
         print(f"  - 近7天平均情绪: {result['time_series_sentiment']['recent_7d']}")
         print(f"  - 近30天平均情绪: {result['time_series_sentiment']['recent_30d']}")
         print(f"  - 全时间平均情绪: {result['time_series_sentiment']['all_time']}")
-    
+
     print(f"\n详细分析已保存到: {output_file}")
     print("="*80)
-    
+
     # 打印前3条新闻的详细分析
     print("\n前3条新闻的详细分析:")
     print("-"*80)
     for i, analysis in enumerate(result['detailed_analyses'][:3], 1):
         print(f"\n[{i}] {analysis['title']}")
-        print(f"    发布时间: {analysis['publish_time']}")
-        print(f"    新闻来源: {analysis['source']}")
+        print(f"    发布时间: {analysis.get('publish_time','')}")
+        print(f"    新闻来源: {analysis.get('source','')}")
         if analysis['title_analysis']:
             method_info = f" [{analysis['title_analysis'].get('method', 'dict')}]"
             print(f"    标题情绪: {analysis['title_analysis']['sentiment_label']} "

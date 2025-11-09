@@ -38,6 +38,72 @@ pip install -r requirements.txt
 ```
 ---
 
+## ✅ Quick Commands (run from project root: `nlp_data_prep`)
+
+### 1. Generate market CSV (technical indicator file)
+```sh
+python -m scripts.tools.data_analyzer --symbol 601857
+```
+or
+```sh
+python -c "from scripts.tools.data_analyzer import analyze_stock_data; analyze_stock_data('601857')"
+```
+Output:
+```
+cache/stock_price_data/<ticker>/<ticker>_analysis_YYYYMMDD.csv
+```
+
+### 2. Fetch & cache news JSON
+```sh
+python -m scripts.tools.news_crawler --ticker 601857 --max-news 30
+```
+or
+```sh
+python -c "from scripts.tools.news_crawler import get_stock_news; get_stock_news('601857', max_news=30)"
+```
+Output:
+```
+cache/news/stock_news/<ticker>/<ticker>_news_YYYY-MM-DD.json
+```
+
+### 3. Run sentiment analysis on a news file
+(Option A: auto-detect latest news file by ticker)
+```sh
+python -m scripts.tools.sentiment_analyzer --ticker 601857
+```
+
+(Option B: specify file manually)
+```sh
+python -m scripts.tools.sentiment_analyzer --input-file scripts/tools/cache/news/stock_news/601857/601857_news_2025-11-09.json
+```
+Output:
+```
+cache/sentiment_analysis/<ticker>_news_YYYY-MM-DD_sentiment_analyses.json
+```
+
+## **4. Generate Trading Insight (LLM)**
+
+Using ticker:
+```sh
+python -m scripts.tools.insight_agent --ticker 601857
+```
+
+Or explicit paths:
+```sh
+python -m scripts.tools.insight_agent   --sentiment-path cache/sentiment_analysis/601857_news_2025-11-09_sentiment_analyses.json   --market-path cache/stock_price_data/601857/601857_analysis_20251109.csv
+```
+Output:
+```
+cache/insight_reports/<ticker>_<request_id>.json
+```
+
+
+### 5. Full pipeline (data → news → sentiment → insight)
+```sh
+python -m scripts.tools.run_pipeline --ticker 601857 --days 365 --max-news 30
+```
+---
+
 ## 更新说明
 1.优化了代码结构   
 2.financial_data.py中修改了Hurst指数的计算方式，索引没变    

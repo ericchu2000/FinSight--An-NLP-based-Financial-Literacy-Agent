@@ -1,9 +1,18 @@
 # insight_agent.py
+"""
+FinSight — Insight agent CLI
+
+Usage (from project root):
+  python -m scripts.tools.insight_agent --ticker 601857
+  python -m scripts.tools.insight_agent --sentiment-path cache/sentiment_analysis/601857_news_2025-11-09_sentiment_analyses.json --market-path cache/stock_price_data/601857/601857_analysis_20251109.csv
+"""
 
 import os
 import json
 import uuid
 import logging
+import glob
+import argparse
 from datetime import datetime
 from typing import Optional, Dict, Any, List
 
@@ -11,15 +20,14 @@ import requests
 import pandas as pd
 from pydantic import BaseModel
 
-
-# =============================================================================
-# CONFIGURATION
-# =============================================================================
+# --------------------------------------------------------------------------------
+# CONFIG (edit paths / model info as needed)
+# --------------------------------------------------------------------------------
 CONFIG = {
-    "OPENROUTER_API_KEY": "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",
+    "OPENROUTER_API_KEY": "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",
     "OPENROUTER_MODEL": "minimax/minimax-m2:free",
     "OPENROUTER_BASE_URL": "https://openrouter.ai/api/v1",
-
+    # defaults used only when running without args (can be overridden)
     "SENTIMENT_SAMPLE_PATH": "cache/sentiment_analysis/000300_news_2025-11-07_sentiment_analyses.json",
     "MARKET_SAMPLE_CSV": "cache/stock_price_data/600519/600519_analysis_20251107.csv",
 }
@@ -28,9 +36,9 @@ logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("INSIGHT_AGENT")
 
 
-# =============================================================================
-# MODELS
-# =============================================================================
+# --------------------------------------------------------------------------------
+# Data models
+# --------------------------------------------------------------------------------
 class NewsItem(BaseModel):
     title: str
     final_sentiment: Dict[str, Any]
@@ -63,7 +71,7 @@ class MarketSnapshot(BaseModel):
 class InsightOutput(BaseModel):
     request_id: str
     ticker: str
-    model_prediction: Dict[str, Any]  # includes direction + confidence + reason
+    model_prediction: Dict[str, Any]
     explanation_short: str
     teaching_note: str
     supporting_facts: List[str]
@@ -71,16 +79,37 @@ class InsightOutput(BaseModel):
     generated_at: str
 
 
-# =============================================================================
-# LOADING FUNCTIONS
-# =============================================================================
+# --------------------------------------------------------------------------------
+# Helpers: find latest cached files for a ticker
+# --------------------------------------------------------------------------------
+def find_latest_sentiment_for_ticker(base_dir: str, ticker: str) -> Optional[str]:
+    pattern = os.path.join(base_dir, "cache", "sentiment_analysis", f"{ticker}_news_*_sentiment_analyses.json")
+    files = sorted(glob.glob(pattern))
+    return files[-1] if files else None
+
+
+def find_latest_market_csv_for_ticker(base_dir: str, ticker: str) -> Optional[str]:
+    pattern = os.path.join(base_dir, "cache", "stock_price_data", ticker, f"{ticker}_analysis_*.csv")
+    files = sorted(glob.glob(pattern))
+    return files[-1] if files else None
+
+
+# --------------------------------------------------------------------------------
+# Loaders
+# --------------------------------------------------------------------------------
 def load_sentiment_json(path: str) -> SentimentSummary:
     with open(path, "r", encoding="utf-8") as f:
-        return SentimentSummary(**json.load(f))
+        raw = json.load(f)
+    # allow older formats where stock_code may be missing -> try to fill
+    if "stock_code" not in raw and "analysis_date" in raw:
+        raw["stock_code"] = raw.get("stock_code", "unknown")
+    return SentimentSummary(**raw)
 
 
 def load_market_csv(path: str) -> MarketSnapshot:
     df = pd.read_csv(path)
+    if df.empty:
+        raise ValueError("Market CSV is empty")
     last = df.tail(1).iloc[0]
 
     def safe(col):
@@ -94,7 +123,7 @@ def load_market_csv(path: str) -> MarketSnapshot:
         ma10=safe("ma10"),
         ma20=safe("ma20"),
         macd=safe("macd"),
-        signal_line=safe("signal_line"),
+        signal_line=safe("singal_line") or safe("signal_line"),
         macd_hist=safe("macd_hist"),
         volume_ratio=safe("volume_ratio"),
         atr=safe("atr"),
@@ -102,129 +131,215 @@ def load_market_csv(path: str) -> MarketSnapshot:
     )
 
 
-# =============================================================================
-# OPENROUTER LLM CALL
-# =============================================================================
+# --------------------------------------------------------------------------------
+# Call OpenRouter (LLM)
+# --------------------------------------------------------------------------------
 def call_openrouter(prompt: str) -> Optional[Dict[str, Any]]:
+    if "paste-your-api-key" in CONFIG["OPENROUTER_API_KEY"]:
+        log.error("No API key set in CONFIG['OPENROUTER_API_KEY']")
+        return None
+
     headers = {
         "Authorization": f"Bearer {CONFIG['OPENROUTER_API_KEY']}",
         "Content-Type": "application/json",
     }
 
-    req = {
+    body = {
         "model": CONFIG["OPENROUTER_MODEL"],
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.2,
     }
 
-    r = requests.post(
-        CONFIG["OPENROUTER_BASE_URL"] + "/chat/completions",
-        headers=headers,
-        json=req,
-        timeout=20
-    )
-
-    log.info(f"LLM HTTP Response: {r.status_code}")
-
     try:
-        text = r.json()["choices"][0]["message"]["content"]
-    except Exception:
-        log.error(f"❌ Invalid response from LLM:\n{r.text}")
+        r = requests.post(CONFIG["OPENROUTER_BASE_URL"] + "/chat/completions", headers=headers, json=body, timeout=25)
+    except Exception as e:
+        log.error(f"LLM request failed: {e}")
         return None
 
+    log.info(f"LLM HTTP status: {r.status_code}")
+
+    try:
+        raw = r.json()
+        text = raw["choices"][0]["message"]["content"]
+    except Exception:
+        log.error("Invalid LLM response; raw text saved to logs.")
+        log.debug(r.text)
+        return None
+
+    # strip code fences if present
     text = text.replace("```json", "").replace("```", "").strip()
 
     try:
         return json.loads(text)
     except Exception:
-        log.error("❌ JSON parse failed:\n" + text)
+        log.error("Failed to parse JSON returned by LLM. Returning None and logging content.")
+        log.debug(text)
         return None
 
 
-# =============================================================================
-# INSIGHT GENERATION
-# =============================================================================
+# --------------------------------------------------------------------------------
+# Core insight logic
+# --------------------------------------------------------------------------------
+def _compute_simple_confidence(sentiment: SentimentSummary, market: MarketSnapshot) -> float:
+    """
+    Small heuristic fallback for confidence when LLM doesn't provide one.
+    Combines sentiment confidence (if provided) and availability of technical indicators.
+    """
+    conf_parts = []
+    s_conf = sentiment.overall_sentiment.get("confidence")
+    if isinstance(s_conf, (int, float)):
+        conf_parts.append(float(s_conf))
+    # reward presence of key indicators
+    indicators = 0
+    for v in (market.ma5, market.ma10, market.ma20, market.rsi, market.macd):
+        if v is not None:
+            indicators += 1
+    indicators_ratio = min(indicators / 5.0, 1.0)
+    conf_parts.append(indicators_ratio * 0.6)  # weight technical presence
+    # average and clamp
+    avg = sum(conf_parts) / max(len(conf_parts), 1)
+    return round(max(0.0, min(1.0, avg)), 2)
+
+
 def run_insight(sentiment: SentimentSummary, market: MarketSnapshot) -> InsightOutput:
     prompt = f"""
-You are an investment insight agent. Analyze sentiment + technical indicators and respond in JSON only.
+You are an investment insight agent. Analyze sentiment + technical indicators and return ONLY valid JSON.
 
 Rules:
 - MA trend > RSI > MACD > Sentiment
 - If signals conflict: direction = "flat"
-- Include confidence (0 to 1)
+- Include a confidence float between 0 and 1
 
 INPUT:
 SentimentLabel={sentiment.overall_sentiment.get("label")}
-Score={sentiment.overall_sentiment.get("score")}
-Trend7d={sentiment.time_series_sentiment.get("recent_7d")}
-Trend30d={sentiment.time_series_sentiment.get("recent_30d")}
+SentimentScore={sentiment.overall_sentiment.get("score")}
+Trend7d={sentiment.time_series_sentiment.get("recent_7d") if sentiment.time_series_sentiment else None}
+Trend30d={sentiment.time_series_sentiment.get("recent_30d") if sentiment.time_series_sentiment else None}
 Distribution={sentiment.sentiment_distribution}
 
 Market:
-Close={market.close}, MA5={market.ma5}, MA10={market.ma10}, MA20={market.ma20}
+Close={market.close}
+MA5={market.ma5}, MA10={market.ma10}, MA20={market.ma20}
 RSI={market.rsi}, MACD={market.macd}, Signal={market.signal_line}, Hist={market.macd_hist}
 VolRatio={market.volume_ratio}, ATR={market.atr}, Volatility={market.historical_volatility}
 
-Return JSON ONLY:
-
+Return JSON EXACTLY in this schema:
 {{
  "model_prediction": {{
      "direction": "up/down/flat",
      "confidence": 0.0,
-     "reason": "short explanation"
+     "reason": "one-sentence reason"
  }},
- "explanation_short": "what is happening",
- "teaching_note": "how to interpret this",
+ "explanation_short": "one-sentence explanation",
+ "teaching_note": "how to interpret these indicators",
  "supporting_facts": ["fact1", "fact2"],
  "disclaimer": "Educational only. Not financial advice."
 }}
 """
 
-    llm = call_openrouter(prompt) or {}
+    llm_out = call_openrouter(prompt) or {}
 
-    llm.setdefault("model_prediction", {"direction": "unknown", "confidence": 0.0})
-    llm.setdefault("explanation_short", "No explanation produced.")
-    llm.setdefault("teaching_note", "Sentiment gives early signals; indicators confirm.")
-    llm.setdefault("supporting_facts", ["No supporting facts generated."])
-    llm.setdefault("disclaimer", "Educational only. Not financial advice.")
+    # normalize returned structure
+    model_prediction = llm_out.get("model_prediction") if isinstance(llm_out.get("model_prediction"), dict) else {}
+    # ensure direction exists
+    direction = model_prediction.get("direction", "unknown")
+    confidence = model_prediction.get("confidence")
+    # if LLM didn't supply confidence, compute fallback
+    if not isinstance(confidence, (int, float)):
+        confidence = _compute_simple_confidence(sentiment, market)
+
+    model_prediction_normalized = {
+        "direction": direction,
+        "confidence": round(float(confidence), 2),
+        "reason": model_prediction.get("reason", str(llm_out.get("reason", ""))) if isinstance(model_prediction.get("reason", ""), str) else ""
+    }
+
+    explanation_short = llm_out.get("explanation_short") or llm_out.get("explanation", "No explanation produced.")
+    teaching_note = llm_out.get("teaching_note", "Sentiment provides early signals; confirm with indicators.")
+    supporting_facts = llm_out.get("supporting_facts") if isinstance(llm_out.get("supporting_facts"), list) else [str(llm_out.get("supporting_facts", "No supporting facts."))]
+    disclaimer = llm_out.get("disclaimer", "Educational only. Not financial advice.")
 
     return InsightOutput(
         request_id=f"req-{uuid.uuid4().hex[:8]}",
         ticker=sentiment.stock_code,
-        model_prediction=llm["model_prediction"],
-        explanation_short=llm["explanation_short"],
-        teaching_note=llm["teaching_note"],
-        supporting_facts=llm["supporting_facts"],
-        disclaimer=llm["disclaimer"],
+        model_prediction=model_prediction_normalized,
+        explanation_short=explanation_short,
+        teaching_note=teaching_note,
+        supporting_facts=supporting_facts,
+        disclaimer=disclaimer,
         generated_at=datetime.now().isoformat(),
     )
 
 
-# =============================================================================
-# SAVE RESULT
-# =============================================================================
-def save_to_cache(result: InsightOutput):
-    folder = os.path.join(os.path.dirname(__file__), "cache", "insight_reports")
+# --------------------------------------------------------------------------------
+# Save
+# --------------------------------------------------------------------------------
+def save_to_cache(result: InsightOutput, base_dir: Optional[str] = None) -> str:
+    base = base_dir if base_dir else os.path.dirname(__file__)
+    folder = os.path.join(base, "cache", "insight_reports")
     os.makedirs(folder, exist_ok=True)
-
     fpath = os.path.join(folder, f"{result.ticker}_{result.request_id}.json")
     with open(fpath, "w", encoding="utf-8") as f:
         f.write(result.model_dump_json(indent=2, ensure_ascii=False))
+    log.info(f"Saved insight to: {fpath}")
+    return fpath
 
-    print(f"✅ Saved: {fpath}")
+
+# --------------------------------------------------------------------------------
+# CLI
+# --------------------------------------------------------------------------------
+def _resolve_files_from_ticker(base_dir: str, ticker: str):
+    sent = find_latest_sentiment_for_ticker(base_dir, ticker)
+    market = find_latest_market_csv_for_ticker(base_dir, ticker)
+    return sent, market
 
 
-# =============================================================================
-# CLI ENTRY POINT
-# =============================================================================
-if __name__ == "__main__":
-    base = os.path.dirname(os.path.abspath(__file__))
-    sentiment = load_sentiment_json(os.path.join(base, CONFIG["SENTIMENT_SAMPLE_PATH"]))
-    market = load_market_csv(os.path.join(base, CONFIG["MARKET_SAMPLE_CSV"]))
+def main():
+    parser = argparse.ArgumentParser(description="Run insight agent (pass --ticker or explicit paths)")
+    parser.add_argument("--ticker", "-t", help="ticker (e.g. 601857). will auto-find latest CSV/JSON in cache/")
+    parser.add_argument("--sentiment-path", help="explicit sentiment JSON path")
+    parser.add_argument("--market-path", help="explicit market CSV path")
+    parser.add_argument("--base-dir", default=os.path.dirname(os.path.abspath(__file__)), help="base directory to resolve cache/ paths (default: script dir)")
+    args = parser.parse_args()
 
-    result = run_insight(sentiment, market)
+    base_dir = args.base_dir
 
+    sentiment_path = args.sentiment_path
+    market_path = args.market_path
+
+    if args.ticker:
+        s, m = _resolve_files_from_ticker(base_dir, args.ticker)
+        if not sentiment_path and s:
+            sentiment_path = s
+        if not market_path and m:
+            market_path = m
+
+    if not sentiment_path or not market_path:
+        log.error("Missing input files. Provide --ticker or both --sentiment-path and --market-path.")
+        parser.print_help()
+        raise SystemExit(2)
+
+    # load
+    try:
+        sentiment = load_sentiment_json(os.path.join(base_dir, sentiment_path) if not os.path.isabs(sentiment_path) else sentiment_path)
+    except Exception as e:
+        log.error(f"Failed to load sentiment JSON: {e}")
+        raise
+
+    try:
+        market = load_market_csv(os.path.join(base_dir, market_path) if not os.path.isabs(market_path) else market_path)
+    except Exception as e:
+        log.error(f"Failed to load market CSV: {e}")
+        raise
+
+    # run
+    out = run_insight(sentiment, market)
+
+    # print + save
     print("\n=== Insight Result ===")
-    print(result.model_dump_json(indent=2, ensure_ascii=False))
+    print(out.model_dump_json(indent=2, ensure_ascii=False))
+    save_to_cache(out, base_dir=base_dir)
 
-    save_to_cache(result)
+
+if __name__ == "__main__":
+    main()

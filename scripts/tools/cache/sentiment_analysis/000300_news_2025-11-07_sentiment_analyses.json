@@ -1,5 +1,5 @@
 {
-  "analysis_date": "2025-11-08",
+  "analysis_date": "2025-11-09",
   "total_news_count": 10,
   "overall_sentiment": {
     "label": "neutral",
@@ -12,7 +12,7 @@
     "negative": 0
   },
   "time_series_sentiment": {
-    "recent_7d": 0.77,
+    "recent_7d": 0.83,
     "recent_30d": 0.77,
     "all_time": 0.75
   },
@@ -796,7 +796,7 @@
     }
   ],
   "stock_code": "000300",
-  "data_source": "cache/news/stock_news/000300/000300_news_2025-11-07.json",
+  "data_source": "C:\\Users\\cgp24\\Desktop\\nlp_data_prep\\scripts\\tools\\cache\\news\\stock_news\\000300\\000300_news_2025-11-07.json",
   "method": "snownlp_hybrid",
   "add_finance_words": true
 }

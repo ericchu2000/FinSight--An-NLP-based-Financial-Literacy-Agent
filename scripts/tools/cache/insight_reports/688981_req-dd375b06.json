@@ -1,0 +1,20 @@
+{
+  "request_id": "req-dd375b06",
+  "ticker": "688981",
+  "model_prediction": {
+    "direction": "flat",
+    "confidence": 0.45,
+    "reason": "Short-term moving average trend is modestly positive, yet the MACD shows bearish momentum, resulting in a neutral outlook."
+  },
+  "explanation_short": "Mixed signals: short-term MA trend is slightly bullish, but MACD is bearish, leading to a flat outlook.",
+  "teaching_note": "MA trend reflects price relative to moving averages, where price above a short-term MA signals an uptrend, while MACD below its signal line indicates bearish momentum; conflicting signals often result in a flat outlook.",
+  "supporting_facts": [
+    "Close (122.11) is above MA5 (121.366) but below MA10 (125.975) and MA20 (127.0625).",
+    "Trend7d (0.55) and Trend30d (0.55) indicate a modest upward bias.",
+    "MACD line (0.365) is below the Signal line (2.107), with a negative Histogram (-1.741).",
+    "SentimentScore (0.55) and distribution (30 neutral) reflect neutral sentiment.",
+    "RSI value is missing, so momentum signal cannot be derived."
+  ],
+  "disclaimer": "Educational only. Not financial advice.",
+  "generated_at": "2025-11-09T20:52:21.808932"
+}

@@ -1,0 +1,1107 @@
+{
+  "analysis_date": "2025-11-09",
+  "total_news_count": 20,
+  "overall_sentiment": {
+    "label": "neutral",
+    "score": 0.6,
+    "confidence": 0.43
+  },
+  "sentiment_distribution": {
+    "positive": 5,
+    "neutral": 15,
+    "negative": 0
+  },
+  "time_series_sentiment": {
+    "recent_7d": 0.6,
+    "recent_30d": 0.6,
+    "all_time": 0.6
+  },
+  "detailed_analyses": [
+    {
+      "title": "微软连跌8天 创14年来最长连跌纪录；央行连续12个月增持黄金；钟睒睒连续5年登顶内地首富丨每经早参",
+      "content": "7 中国石油原党组管理干部霍进接受审查调查中国石油（SH601857，股价9.71元，市值1.78万亿元）：中央纪委国家监委网站",
+      "publish_time": "2025-11-08 06:54:42",
+      "source": "每日经济新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "negative",
+        "sentiment_score": 0.17,
+        "confidence": 0.55,
+        "matched_words_count": 2,
+        "total_words_count": 47,
+        "matched_words": [
+          "跌",
+          "跌"
+        ],
+        "detailed_words": [
+          {
+            "word": "跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 3,
+            "negated": false
+          },
+          {
+            "word": "跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 14,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 56,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.3,
+        "confidence": 0.49
+      }
+    },
+    {
+      "title": "因违规减持超597万股，洲际油气股东被证监部门责令购回",
+      "content": "其中，中国石油601857.SH/00857.HK)归母净利润同比下跌4.9%；中国石化(600028.SH/00386",
+      "publish_time": "2025-11-07 19:57:20",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "negative",
+        "sentiment_score": 0.25,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 25,
+        "matched_words": [
+          "减持"
+        ],
+        "detailed_words": [
+          {
+            "word": "减持",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 3,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.42,
+        "matched_words_count": 2,
+        "total_words_count": 48,
+        "matched_words": [
+          "利润",
+          "下跌"
+        ],
+        "detailed_words": [
+          {
+            "word": "利润",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 24,
+            "negated": false
+          },
+          {
+            "word": "下跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 27,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.35,
+        "confidence": 0.48
+      }
+    },
+    {
+      "title": "贵州习酒入股中石油旗下公司，后者更名为中石油好客习酒供应链公司",
+      "content": "股东信息显示，该公司现由中国石油（601857）及上述新增股东共同持股。",
+      "publish_time": "2025-11-07 11:37:04",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 30,
+        "matched_words": [
+          "好"
+        ],
+        "detailed_words": [
+          {
+            "word": "好",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 21,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 32,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "贵州习酒入股中石油旗下公司",
+      "content": "股东信息显示，该公司现由中国石油（601857）及上述新增股东共同持股。",
+      "publish_time": "2025-11-07 11:00:51",
+      "source": "南方财经网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 13,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 32,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "油气ETF(159697)涨近1%，采暖季来临天然气需求增加",
+      "content": "月31日，国证石油天然气指数(399439)前十大权重股分别为中国石油601857、中国石化",
+      "publish_time": "2025-11-06 13:49:20",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.56,
+        "matched_words_count": 2,
+        "total_words_count": 26,
+        "matched_words": [
+          "涨",
+          "增加"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 11,
+            "negated": false
+          },
+          {
+            "word": "增加",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 25,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 42,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.7,
+        "confidence": 0.33
+      }
+    },
+    {
+      "title": "油气ETF(159697)涨近1%，洲际油气盘中涨停",
+      "content": "月31日，国证石油天然气指数(399439)前十大权重股分别为中国石油601857、中国石化",
+      "publish_time": "2025-11-05 14:28:58",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.57,
+        "matched_words_count": 2,
+        "total_words_count": 22,
+        "matched_words": [
+          "涨",
+          "涨停"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 11,
+            "negated": false
+          },
+          {
+            "word": "涨停",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 21,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 42,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.7,
+        "confidence": 0.33
+      }
+    },
+    {
+      "title": "中国移动、中国石油，大消息！两大集团加强战略协同",
+      "content": "此前，中国石油（SH601857）于9月2日公告，中国石油集团拟通过国有股份划转方式，将其持有的中国石油5.41亿股A股股份",
+      "publish_time": "2025-11-04 10:33:21",
+      "source": "每日经济新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 20,
+        "matched_words": [
+          "加强"
+        ],
+        "detailed_words": [
+          {
+            "word": "加强",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 15,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 56,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "券商11月金股转向价值：煤炭增配居前 金山办公“最热”",
+      "content": "118）、振华股份（603067）、中煤能源（601898）、中国石油（601857）、西麦食品（002956",
+      "publish_time": "2025-11-04 08:33:31",
+      "source": "澎湃新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 23,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 43,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "277股今日获机构买入评级",
+      "content": "中国石油14.4810.39石油石化601865福莱特12.0552.06",
+      "publish_time": "2025-11-03 23:11:30",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 13,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 33,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "石油石化行业资金流入榜：中国石油、洲际油气等净流入资金居前",
+      "content": "日涨跌幅（%）今日换手率（%）主力资金流量（万元）601857中国石油4.480.1429450.82600759",
+      "publish_time": "2025-11-03 20:58:33",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 27,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.42,
+        "matched_words_count": 2,
+        "total_words_count": 48,
+        "matched_words": [
+          "涨",
+          "跌"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 1,
+            "negated": false
+          },
+          {
+            "word": "跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 2,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.41
+      }
+    },
+    {
+      "title": "中国移动0元划转4198万股，中石油成为股东",
+      "content": "今年9月2日晚间，中国石油601857.SH)公告称，中石油拟通过国有股份划转方式将其持有的中国石油5.41亿股A股股份",
+      "publish_time": "2025-11-03 20:34:21",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 21,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 55,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "欧佩克+明年一季度暂停增产提振石油市场 中国石油股价创年内新高",
+      "content": "国海油（600938.SH）涨超4.8%，报28.42元/股；中国石油（601857.SH）上涨4.48%，报收",
+      "publish_time": "2025-11-03 17:31:44",
+      "source": "第一财经",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 28,
+        "matched_words": [
+          "新高"
+        ],
+        "detailed_words": [
+          {
+            "word": "新高",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 27,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.55,
+        "matched_words_count": 2,
+        "total_words_count": 42,
+        "matched_words": [
+          "涨",
+          "上涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 11,
+            "negated": false
+          },
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 35,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "positive",
+        "score": 0.78,
+        "confidence": 0.53
+      }
+    },
+    {
+      "title": "险资持续加仓股市，红利低波ETF永赢(563690)上涨超1%",
+      "content": "上涨1.21%，成分股中文传媒(600373)上涨5.59%，中国石油601857上涨4.15%，",
+      "publish_time": "2025-11-03 14:39:46",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 27,
+        "matched_words": [
+          "上涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 23,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.88,
+        "confidence": 0.58,
+        "matched_words_count": 3,
+        "total_words_count": 38,
+        "matched_words": [
+          "上涨",
+          "上涨",
+          "上涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 0,
+            "negated": false
+          },
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 18,
+            "negated": false
+          },
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 33,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "positive",
+        "score": 0.8,
+        "confidence": 0.55
+      }
+    },
+    {
+      "title": "油气股拉升，中国石油涨超4%创年内新高",
+      "content": "11月3日，油气股震荡拉升，截至午间收盘，中国石油（601857.SH）涨4.15%，股价创出年内新高，市值突破1.7",
+      "publish_time": "2025-11-03 13:50:34",
+      "source": "21世纪经济报道",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.58,
+        "matched_words_count": 2,
+        "total_words_count": 17,
+        "matched_words": [
+          "涨",
+          "新高"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 9,
+            "negated": false
+          },
+          {
+            "word": "新高",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 16,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.85,
+        "confidence": 0.58,
+        "matched_words_count": 4,
+        "total_words_count": 46,
+        "matched_words": [
+          "震荡",
+          "涨",
+          "新高",
+          "突破"
+        ],
+        "detailed_words": [
+          {
+            "word": "震荡",
+            "type": "negative",
+            "strength": "weak",
+            "weight": -0.6,
+            "position": 8,
+            "negated": false
+          },
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 29,
+            "negated": false
+          },
+          {
+            "word": "新高",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 40,
+            "negated": false
+          },
+          {
+            "word": "突破",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 43,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "positive",
+        "score": 0.84,
+        "confidence": 0.57
+      }
+    },
+    {
+      "title": "煤炭、银行股涨幅居前，红利低波ETF泰康(560150)涨超1%，近1年净值涨幅居同类产品第一",
+      "content": "上涨1.14%，成分股江阴银行(002807)上涨4.21%，中国石油601857",
+      "publish_time": "2025-11-03 13:30:29",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.88,
+        "confidence": 0.58,
+        "matched_words_count": 3,
+        "total_words_count": 42,
+        "matched_words": [
+          "涨",
+          "涨",
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 5,
+            "negated": false
+          },
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 24,
+            "negated": false
+          },
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 33,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.56,
+        "matched_words_count": 2,
+        "total_words_count": 33,
+        "matched_words": [
+          "上涨",
+          "上涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 0,
+            "negated": false
+          },
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 18,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "positive",
+        "score": 0.86,
+        "confidence": 0.57
+      }
+    },
+    {
+      "title": "建信沪深300红利ETF(512530)所跟踪指数逆市上涨，上市公司分红积极性持续升温，机构预计红利板块仍有配置机会",
+      "content": "99)上涨5.68%，中煤能源(601898)上涨4.42%，中国石油601857上涨3.61%，",
+      "publish_time": "2025-11-03 11:10:52",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.81,
+        "confidence": 0.54,
+        "matched_words_count": 2,
+        "total_words_count": 52,
+        "matched_words": [
+          "上涨",
+          "积极"
+        ],
+        "detailed_words": [
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 25,
+            "negated": false
+          },
+          {
+            "word": "积极",
+            "type": "positive",
+            "strength": "weak",
+            "weight": 0.6,
+            "position": 32,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.88,
+        "confidence": 0.58,
+        "matched_words_count": 3,
+        "total_words_count": 37,
+        "matched_words": [
+          "上涨",
+          "上涨",
+          "上涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 2,
+            "negated": false
+          },
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 17,
+            "negated": false
+          },
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 32,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "positive",
+        "score": 0.84,
+        "confidence": 0.56
+      }
+    },
+    {
+      "title": "百亿私募三季报调仓：高毅大面积减仓“旧爱”，保险系“心水股”亮相",
+      "content": "其中，除了中国神华（601088.SH）和中国石油（601857.SH）持仓数量与中报持平以外，其他4只个股均为三季报新进",
+      "publish_time": "2025-11-03 10:57:57",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 26,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 53,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "油气ETF(159697)涨近2%，原油价格持续走高",
+      "content": "月31日，国证石油天然气指数(399439)前十大权重股分别为中国石油601857、中国石化",
+      "publish_time": "2025-11-03 10:48:58",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 23,
+        "matched_words": [
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 11,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 42,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "油气ETF(159697)涨近1%，OPEC+明年第一季度将暂停增产",
+      "content": "国证石油天然气指数(399439)前十大权重股分别为中国石油601857、中国石化(600028)、中国海油(600938",
+      "publish_time": "2025-11-03 10:08:01",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 30,
+        "matched_words": [
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 11,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 54,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.3
+      }
+    },
+    {
+      "title": "透视“三桶油”业绩：油价下跌背后 化工板块成痛点",
+      "content": "其中，中国石油601857.SH/00857.HK)归母净利润最高，达1262.94亿元，同比下跌4.9%，跌幅最小；中国石化",
+      "publish_time": "2025-11-02 09:16:00",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "negative",
+        "sentiment_score": 0.25,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 19,
+        "matched_words": [
+          "下跌"
+        ],
+        "detailed_words": [
+          {
+            "word": "下跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 9,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "negative",
+        "sentiment_score": 0.25,
+        "confidence": 0.52,
+        "matched_words_count": 3,
+        "total_words_count": 50,
+        "matched_words": [
+          "利润",
+          "下跌",
+          "跌"
+        ],
+        "detailed_words": [
+          {
+            "word": "利润",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 24,
+            "negated": false
+          },
+          {
+            "word": "下跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 38,
+            "negated": false
+          },
+          {
+            "word": "跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 42,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.25,
+        "confidence": 0.52
+      }
+    }
+  ],
+  "stock_code": "601857",
+  "data_source": "C:\\Users\\cgp24\\Desktop\\nlp_data_prep\\scripts\\tools\\cache\\news\\stock_news\\601857\\601857_news_2025-11-09.json",
+  "method": "dictionary_based",
+  "add_finance_words": true
+}
