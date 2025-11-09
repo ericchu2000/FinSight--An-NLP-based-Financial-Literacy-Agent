@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ```
 ---
 
-## ✅ Quick Commands (run from project root: `nlp_project_data_prepare`)
+## 快速指令（从项目根目录 nlp_project_data_prepare 执行）
 
 ### 1. Generate market CSV (technical indicator file)
 ```sh
