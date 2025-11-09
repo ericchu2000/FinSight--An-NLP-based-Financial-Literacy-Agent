@@ -1,0 +1,14 @@
+# Core dependencies
+pandas
+requests
+python-dotenv
+
+# LLM API (OpenRouter)
+openai>=1.3.0
+
+# Optional (if you use FastAPI / APIs later)
+fastapi
+uvicorn[standard]
+
+# Logging (built-in, but logging config can use rich)
+rich

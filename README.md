@@ -25,6 +25,17 @@ nlp_project_data_prepare/
 └── logs/                                       # 日志文件存储目录（自动生成）
 ```
 
+## 安装依赖（Dependencies Installation）
+
+1. 确保你已安装 **Python 3.9+**
+2. 推荐：创建并激活虚拟环境（可选）
+3. 在项目根目录执行以下命令安装所有依赖：
+
+```
+pip install -r requirements.txt
+```
+---
+
 ## 更新说明
 1.优化了代码结构   
 2.financial_data.py中修改了Hurst指数的计算方式，索引没变    
