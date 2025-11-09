@@ -15,7 +15,9 @@ nlp_project_data_prepare/
 │       ├── get_em_calendar_image.py             # 查找东方财富财经早餐网页图片链接
 │       ├── get_em_listpage_url.py               # 查找东方财富财经早餐网页链接
 │       ├── eastmoney_breakfast.py               # 查找东方财富财经早餐  （判读工作日函数有问题，从2022-11-9至2022-12-21无法正确返回网址序号）
+│       ├── insight_agent.py                     # 结合情绪数据与市场指标，生成投资洞察与预测结果
 │       └── cache/                               # 数据缓存
+│           ├── insight_reports                  # 存放 Insight Agent 输出的 JSON 洞察报告
 │           ├── news/                
 │           │   ├── eastmoney_breakfast/         # 东方财富财经早餐相关链接
 │           │   │   └── urls_of_em.json
@@ -25,7 +27,7 @@ nlp_project_data_prepare/
 └── logs/                                       # 日志文件存储目录（自动生成）
 ```
 
-## 安装依赖（Dependencies Installation）
+## 安装依赖（Dependencies Installation）(运行insight_agent.py前)
 
 1. 确保你已安装 **Python 3.9+**
 2. 推荐：创建并激活虚拟环境（可选）
@@ -90,6 +92,17 @@ decimal_cols = [
 - 计算置信度（基于匹配度、一致性、强度三个维度）  
 - 支持新闻列表的批量分析和时间序列情绪趋势计算  
 - 输出包含情绪标签、得分、关键词、置信度等完整信息的 JSON 格式结果
+
+8.投资洞察生成（insight_agent.py）  
+- 综合 **情绪分析结果（JSON）** + **技术指标（CSV）**  
+- 使用大语言模型(来着Openrouter)进行趋势判断，输出方向：上涨（up） / 下跌（down） / 震荡（flat）  
+- 自动生成结构化 JSON，包括：  
+  - 趋势方向（direction）  
+  - 置信度（confidence）  
+  - 关键理由（reason）  
+  - 佐证数据（supporting_facts）  
+  - 教学提示（teaching_note，解释指标含义）  
+- 自动保存输出为 `cache/insight_reports/*.json`
   
 ## 安装说明
 ### 前置依赖

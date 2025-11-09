@@ -1,0 +1,17 @@
+{
+  "request_id": "req-976e7b38",
+  "ticker": "000300",
+  "model_prediction": {
+    "direction": "flat",
+    "confidence": 0.35,
+    "reason": "Conflicting signals: bearish MACD with neutral sentiment and mixed MA trend"
+  },
+  "explanation_short": "Technical analysis shows mixed signals - price below MA20 but above shorter MAs, with negative MACD suggesting bearish momentum while sentiment remains neutral. Missing RSI data prevents full confirmation.",
+  "teaching_note": "When technical indicators conflict, a flat position is often prudent. MACD bearish signal is contradicted by mixed MA trend, while neutral sentiment doesn't provide clear directional bias. Missing RSI further limits confidence.",
+  "supporting_facts": [
+    "Price (1435.13) below MA20 (1444.61) indicates medium-term bearishness",
+    "MACD (-8.59) and Histogram (-1.62) both negative, suggesting bearish momentum"
+  ],
+  "disclaimer": "Educational only. Not financial advice.",
+  "generated_at": "2025-11-09T17:50:00.322987"
+}
