@@ -27,7 +27,7 @@ nlp_project_data_prepare/
 └── logs/                                       # 日志文件存储目录（自动生成）
 ```
 
-## 安装依赖（Dependencies Installation）(运行insight_agent.py前)
+## 安装依赖（Dependencies Installation）
 
 1. 确保你已安装 **Python 3.9+**
 2. 推荐：创建并激活虚拟环境（可选）
@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ```
 ---
 
-## ✅ Quick Commands (run from project root: `nlp_data_prep`)
+## ✅ Quick Commands (run from project root: `nlp_project_data_prepare`)
 
 ### 1. Generate market CSV (technical indicator file)
 ```sh
