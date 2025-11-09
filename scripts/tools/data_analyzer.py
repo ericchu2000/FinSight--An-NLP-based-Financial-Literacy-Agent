@@ -1,15 +1,21 @@
 import numpy as np
 import pandas as pd
 from datetime import datetime, timedelta
-from financial_data import get_price_history
+from .financial_data import get_price_history
 import csv
 import os
 # from scripts.logging_config import setup_logger
 
 # logger=setup_logger("data_analyzer")
 
-def analyze_stock_data(symbol: str,start_date: str = None,end_ydate: str = None):
-    df=get_price_history(symbol,start_date,end_date)
+def analyze_stock_data(symbol: str, start_date: str = None, end_date: str = None):
+    # default handling so pipeline works without some of the paramters
+    if end_date is None:
+        end_date = datetime.now().strftime("%Y-%m-%d")
+    if start_date is None:
+        start_date = (datetime.now() - timedelta(days=365)).strftime("%Y-%m-%d")
+
+    df = get_price_history(symbol, start_date, end_date)
 
     if df.empty:
         print("No data available")
@@ -79,26 +85,31 @@ def analyze_stock_data(symbol: str,start_date: str = None,end_ydate: str = None)
             lambda x: f"{x:.8f}".rstrip('0').rstrip('.') if not pd.isna(x) else ""
         )
 
-    #保存
-    stock_data_dir=os.path.join("cache", "stock_price_data",symbol)
+    # --- SAVE (use path relative to this module file) --------------------
+    base_dir = os.path.dirname(__file__)  # scripts/tools
+    stock_data_dir = os.path.join(base_dir, "cache", "stock_price_data", symbol)
     output_file = f"{symbol}_analysis_{datetime.now().strftime('%Y%m%d')}.csv"
-    stock_data_path=os.path.join(stock_data_dir,output_file)
+    stock_data_path = os.path.join(stock_data_dir, output_file)
 
-    # 确保目录存在
+    # Ensure directory exists
     os.makedirs(stock_data_dir, exist_ok=True)
 
-    df.to_csv(stock_data_path,
-              index=False,
-              quoting=csv.QUOTE_NONE,
-              escapechar="\\")
-    print(f"Data saved to {output_file}")
+    # Save CSV
+    df.to_csv(
+        stock_data_path,
+        index=False,
+        quoting=csv.QUOTE_NONE,
+        escapechar="\\"
+    )
+
     print("\n基本统计信息:")
     print(f"数据时间范围: {df['date'].min()} 至 {df['date'].max()}")
     print(f"总记录数: {len(df)}")
     print("\nNaN值统计:")
     print(df.isna().sum())
-    #恢复全局设置（避免影响后续代码）
+    # restore float format
     pd.reset_option('display.float_format')
+    print(f"Data saved to {stock_data_path}")
 
 if __name__ == "__main__":
     # 测试代码

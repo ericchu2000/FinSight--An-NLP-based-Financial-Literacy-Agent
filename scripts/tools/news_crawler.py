@@ -1,10 +1,10 @@
+# scripts/tools/news_crawler.py
+
 import os
 import re
 import sys
 import json
-from asyncio import timeout
 from datetime import datetime, timedelta
-import time
 import pandas as pd
 from urllib.parse import urlparse
 
@@ -19,13 +19,19 @@ except ImportError:
 # 保留 akshare 作为备用
 try:
     import akshare as ak
-    import requests
-    from bs4 import BeautifulSoup
 except ImportError:
     print("警告: akshare 不可用")
     ak = None
 
-def build_search_query(ticker:str,date:str=None):
+# ====================== 修改点：固定 cache 路径 ======================
+# 保证缓存路径基于脚本位置，而不是当前运行位置（修复保存路径问题）
+# English: ensure cache root is always inside scripts/tools/cache (not project CWD)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # scripts/tools
+CACHE_ROOT = os.path.join(BASE_DIR, "cache")
+# ================================================================
+
+
+def build_search_query(ticker: str, date: str = None):
     """
     构建针对股票新闻的 Google 搜索查询
 
@@ -37,18 +43,18 @@ def build_search_query(ticker:str,date:str=None):
         构建好的搜索查询字符串
     """
     #基础查询
-    base_query=f"{ticker} 股票 新闻 财经 股市"
+    base_query = f"{ticker} 股票 新闻 财经 股市"
 
     #如果有时间限制，要求指定日期之前
     if date:
         try:
-            end_date=datetime.strptime(date,"%Y-%m-%d")
-            start_date=end_date-timedelta(days=7)
-            base_query+=f"after:{start_date.strftime('%Y-%m-%d')} before {end_date.strftime('%Y-%m-%d')}"
+            end_date = datetime.strptime(date, "%Y-%m-%d")
+            start_date = end_date - timedelta(days=7)
+            base_query += f"after:{start_date.strftime('%Y-%m-%d')} before:{end_date.strftime('%Y-%m-%d')}"
         except ValueError:
             print(f"日期格式错误: {date}，忽略时间限制")
 
-    news_sites=[
+    news_sites = [
         "site:sina.com.cn",
         "site:163.com",
         "site:eastmoney.com",
@@ -56,25 +62,33 @@ def build_search_query(ticker:str,date:str=None):
         "site:hexun.com"
     ]
 
-    query=f"{base_query} ({' OR '.join(news_sites)})"
+    query = f"{base_query} ({' OR '.join(news_sites)})"
     return query
 
-def extract_domain(url:str):
+
+def extract_domain(url: str):
     try:
-        parsed=urlparse(url)
+        parsed = urlparse(url)
         return parsed.netloc
     except:
         return "Unknown source"
 
-def convert_search_results_to_news(search_results,ticker:str) :
-    news_list=[]
+
+def convert_search_results_to_news(search_results, ticker: str):
+    news_list = []
+
     for result in search_results:
-        if any(keyword in result.title.lower() for keyword in ["招聘","求职","广告","登录","注册","开户"]):
+        # some search result objects may have different attribute names
+        title = getattr(result, "title", "") or ""
+        snippet = getattr(result, "snippet", "") or ""
+        link = getattr(result, "link", "") or ""
+
+        if any(keyword in title.lower() for keyword in ["招聘", "求职", "广告", "登录", "注册", "开户"]):
             continue
 
         # 尝试从snippet中提取时间信息
         publish_time = None
-        if result.snippet:
+        if snippet:
             # 查找常见的时间模式
             time_patterns = [
                 r'(\d{1,2}天前)',
@@ -85,7 +99,7 @@ def convert_search_results_to_news(search_results,ticker:str) :
             ]
 
             for pattern in time_patterns:
-                match = re.search(pattern, result.snippet)
+                match = re.search(pattern, snippet)
                 if match:
                     time_str = match.group(1)
                     try:
@@ -93,13 +107,11 @@ def convert_search_results_to_news(search_results,ticker:str) :
                         if '天前' in time_str:
                             days = int(time_str.replace('天前', ''))
                             publish_date = datetime.now() - timedelta(days=days)
-                            publish_time = publish_date.strftime(
-                                '%Y-%m-%d %H:%M:%S')
+                            publish_time = publish_date.strftime('%Y-%m-%d %H:%M:%S')
                         elif '小时前' in time_str:
                             hours = int(time_str.replace('小时前', ''))
                             publish_date = datetime.now() - timedelta(hours=hours)
-                            publish_time = publish_date.strftime(
-                                '%Y-%m-%d %H:%M:%S')
+                            publish_time = publish_date.strftime('%Y-%m-%d %H:%M:%S')
                         # YYYY-MM-DD格式
                         elif '-' in time_str and len(time_str) == 10:
                             publish_time = f"{time_str} 00:00:00"
@@ -108,10 +120,10 @@ def convert_search_results_to_news(search_results,ticker:str) :
                         continue
 
         news_item = {
-            "title": result.title,
-            "content": result.snippet or result.title,
-            "source": extract_domain(result.link),
-            "url": result.link,
+            "title": title,
+            "content": snippet or title,
+            "source": extract_domain(link),
+            "url": link,
             "keyword": ticker,
             "search_time": datetime.now().strftime('%Y-%m-%d %H:%M:%S')  # 搜索时间
         }
@@ -122,7 +134,8 @@ def convert_search_results_to_news(search_results,ticker:str) :
 
         news_list.append(news_item)
 
-        return news_list
+    # English: fixed bug — return after loop so all results are returned (previously returned first item only)
+    return news_list
 
 
 def get_stock_news_via_akshare(symbol: str, max_news: int = 10) -> list:
@@ -150,8 +163,7 @@ def get_stock_news_via_akshare(symbol: str, max_news: int = 10) -> list:
         for _, row in news_df.head(int(max_news * 1.5)).iterrows():
             try:
                 # 获取新闻内容
-                content = row["新闻内容"] if "新闻内容" in row and not pd.isna(
-                    row["新闻内容"]) else ""
+                content = row["新闻内容"] if "新闻内容" in row and not pd.isna(row["新闻内容"]) else ""
                 if not content:
                     content = row["新闻标题"]
 
@@ -161,8 +173,7 @@ def get_stock_news_via_akshare(symbol: str, max_news: int = 10) -> list:
                     continue
 
                 # 获取关键词
-                keyword = row["关键词"] if "关键词" in row and not pd.isna(
-                    row["关键词"]) else ""
+                keyword = row["关键词"] if "关键词" in row and not pd.isna(row["关键词"]) else ""
 
                 # 添加新闻
                 news_item = {
@@ -190,13 +201,15 @@ def get_stock_news_via_akshare(symbol: str, max_news: int = 10) -> list:
         print(f"akshare 获取新闻数据时出错: {e}")
         return []
 
+
 def get_stock_news(ticker, max_news: int = 10, date: str = None) -> list:
-    max_news = min(max_news,100)
+    max_news = min(max_news, 100)
 
     cache_date = date if date else datetime.now().strftime('%Y-%m-%d')
 
-    #新闻文件保存路径
-    news_dir=os.path.join("cache", "news", "stock_news",ticker)
+    # 新闻文件保存路径
+    # English: use CACHE_ROOT so saving location is scripts/tools/cache/news/stock_news/<ticker>/
+    news_dir = os.path.join(CACHE_ROOT, "news", "stock_news", ticker)
     print(f"新闻保存目录为：{news_dir}")
 
     try:
@@ -209,7 +222,7 @@ def get_stock_news(ticker, max_news: int = 10, date: str = None) -> list:
     news_file_path = os.path.join(news_dir, f"{ticker}_news_{cache_date}.json")
     print(f"新闻文件保存路径为{news_file_path}")
 
-    #检查缓存
+    # 检查缓存
     cached_news = []
     cache_valid = False
 
@@ -217,21 +230,21 @@ def get_stock_news(ticker, max_news: int = 10, date: str = None) -> list:
         try:
             file_mtime = os.path.getmtime(news_file_path)
 
-            #当日的缓存仅在当日有效，历史日期的缓存始终有效
+            # 当日的缓存仅在当日有效，历史日期的缓存始终有效
             if date:
-                cache_valid=True
+                cache_valid = True
             else:
-                cache_date_obj=datetime.fromtimestamp(file_mtime).date()
-                today=datetime.now().date()
-                cache_valid= cache_date_obj==today
+                cache_date_obj = datetime.fromtimestamp(file_mtime).date()
+                today = datetime.now().date()
+                cache_valid = cache_date_obj == today
 
             if cache_valid:
                 with open(news_file_path, "r", encoding="utf-8") as f:
-                    data=json.load(f)
-                    cached_news=data.get("news",[])
+                    data = json.load(f)
+                    cached_news = data.get("news", [])
 
                     if len(cached_news) >= max_news:
-                        print( f"使用缓存的新闻数据: {news_file_path} (缓存数量: {len(cached_news)})")
+                        print(f"使用缓存的新闻数据: {news_file_path} (缓存数量: {len(cached_news)})")
                         return cached_news[:max_news]
                     else:
                         print(f"缓存的新闻数量({len(cached_news)})不足，需要获取更多新闻")
@@ -240,32 +253,32 @@ def get_stock_news(ticker, max_news: int = 10, date: str = None) -> list:
 
         except Exception as e:
             print(f"读取缓存文件失败{e}")
-            cached_news=[]
+            cached_news = []
     print(f"开始获取{ticker}的新闻")
 
-    #计算需要新获取新闻的数量
-    more_news_num= max_news - len(cached_news)
-    fetch_count= max(more_news_num, max_news)
+    # 计算需要新获取新闻的数量
+    more_news_num = max_news - len(cached_news)
+    fetch_count = max(more_news_num, max_news)
 
-    #优先使用google
-    new_news_list=[]
+    # 优先使用google
+    new_news_list = []
     if google_search_sync and SearchOptions:
         try:
             print("使用Google搜索新闻")
 
-            search_query = build_search_query(ticker,date)
+            search_query = build_search_query(ticker, date)
             print(f"搜索查询： {search_query}")
 
-            search_options= SearchOptions(
-                limit=fetch_count*2,
+            search_options = SearchOptions(
+                limit=fetch_count * 2,
                 timeout=30000,
                 locale="zh-CN",
             )
 
-            search_response=google_search_sync(search_query,search_options)
+            search_response = google_search_sync(search_query, search_options)
 
             if search_response.results:
-                new_news_list=convert_search_results_to_news(search_response.results,ticker)
+                new_news_list = convert_search_results_to_news(search_response.results, ticker)
                 print(f"通过 Google 搜索成功获取到{len(new_news_list)}条新闻")
             else:
                 print("Google 搜索未返回有效结果，尝试回退到 akshare")
@@ -278,29 +291,29 @@ def get_stock_news(ticker, max_news: int = 10, date: str = None) -> list:
         new_news_list = get_stock_news_via_akshare(ticker, fetch_count)
 
     if cached_news and new_news_list:
-        exsting_titles= {news["title"] for news in cached_news}
+        exsting_titles = {news["title"] for news in cached_news}
         unique_new_news = [news for news in new_news_list if news["title"] not in exsting_titles]
 
-        combined_news=cached_news+unique_new_news
+        combined_news = cached_news + unique_new_news
         print(f"合并缓存新闻({len(cached_news)}条)和新获取新闻({len(unique_new_news)}条)，总计{len(combined_news)}条")
 
     else:
-        combined_news=new_news_list or cached_news
+        combined_news = new_news_list or cached_news
 
-    #按发布时间排序
+    # 按发布时间排序
     try:
-        combined_news.sort(key=lambda x: x.get("publish_time",""), reverse=True)
+        combined_news.sort(key=lambda x: x.get("publish_time", ""), reverse=True)
     except:
         pass
 
-    final_news_list=combined_news[:max_news]
+    final_news_list = combined_news[:max_news]
 
     if new_news_list or not cache_valid:
         try:
-            data_to_save={
-                "date":cache_date,
+            data_to_save = {
+                "date": cache_date,
                 "method": "online_search" if new_news_list and google_search_sync else "akshare",
-                "query": build_search_query(ticker,date) if new_news_list and google_search_sync else None,
+                "query": build_search_query(ticker, date) if new_news_list and google_search_sync else None,
                 "news": combined_news,
                 "cached_count": len(cached_news),
                 "news_count": len(new_news_list),
@@ -315,5 +328,16 @@ def get_stock_news(ticker, max_news: int = 10, date: str = None) -> list:
             print(f"保存新闻至文件出错：{e}")
     return final_news_list
 
-ticker="000300"
-get_stock_news(ticker, max_news=10, date=None)
+
+# CLI entry
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Fetch stock news and cache to scripts/tools/cache/news/stock_news/<ticker>/")
+    parser.add_argument("--ticker", "-t", required=False, default="601857", help="stock ticker (e.g. 601857)") #601857 - 中国石油
+    parser.add_argument("--max-news", type=int, default=10, help="max news items to fetch")
+    parser.add_argument("--date", type=str, default=None, help="optional date in YYYY-MM-DD to look up cached file")
+    args = parser.parse_args()
+
+    print(f"Fetching news for: {args.ticker} (max_news={args.max_news}, date={args.date})")
+    get_stock_news(args.ticker, max_news=args.max_news, date=args.date)
