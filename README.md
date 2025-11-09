@@ -175,4 +175,25 @@ print(f"整体置信度: {result['overall_sentiment']['confidence']}")
 
 ```
 
+5.Insight Agent
+```
+1. 修改配置文件路径
+------------------
+打开:
+scripts/tools/insight_agent.py
 
+将CONFIG内容改成你的文件路径：
+
+"SENTIMENT_SAMPLE_PATH": "cache/sentiment_analysis/xxx.json",
+"MARKET_SAMPLE_CSV": "cache/stock_price_data/xxxxxx/xxxxxx.csv"
+
+- SENTIMENT_SAMPLE_PATH → 指向情绪分析 JSON
+- MARKET_SAMPLE_CSV → 指向股票技术指标 CSV
+
+
+2. 运行 Insight Agent 主程序
+---------------------------
+在项目根目录执行：
+
+python scripts/tools/insight_agent.py
+```
