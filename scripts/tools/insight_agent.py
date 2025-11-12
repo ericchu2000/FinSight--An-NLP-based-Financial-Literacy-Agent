@@ -24,7 +24,7 @@ from pydantic import BaseModel
 # CONFIG (edit paths / model info as needed)
 # --------------------------------------------------------------------------------
 CONFIG = {
-    "OPENROUTER_API_KEY": "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",
+    "OPENROUTER_API_KEY": "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",
     "OPENROUTER_MODEL": "minimax/minimax-m2:free",
     "OPENROUTER_BASE_URL": "https://openrouter.ai/api/v1",
     # defaults used only when running without args (can be overridden)
