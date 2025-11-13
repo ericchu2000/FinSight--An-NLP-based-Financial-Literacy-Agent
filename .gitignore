@@ -1,0 +1,63 @@
+# -----------------------------
+# Python / Project Files
+# -----------------------------
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Local config (contains API key, DO NOT UPLOAD)
+scripts/tools/llm_config.py
+
+# Alternative name protection (in case renamed)
+*/llm_config.py
+llm_config.py
+
+# Credentials / secrets / tokens
+*.key
+*.pem
+*.p12
+*.token
+*.secret
+*.env
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+
+# Cache folders
+cache/
+scripts/tools/cache/
+scripts/tools/cache/**/*
+
+# OS / Editor files
+.DS_Store
+Thumbs.db
+
+# VSCode / PyCharm
+.vscode/
+.idea/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Distribution / build artifacts
+build/
+dist/
+*.egg-info/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
