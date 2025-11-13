@@ -23,14 +23,8 @@ from pydantic import BaseModel
 # --------------------------------------------------------------------------------
 # CONFIG (edit paths / model info as needed)
 # --------------------------------------------------------------------------------
-CONFIG = {
-    "OPENROUTER_API_KEY": "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",
-    "OPENROUTER_MODEL": "minimax/minimax-m2:free",
-    "OPENROUTER_BASE_URL": "https://openrouter.ai/api/v1",
-    # defaults used only when running without args (can be overridden)
-    "SENTIMENT_SAMPLE_PATH": "cache/sentiment_analysis/000300_news_2025-11-07_sentiment_analyses.json",
-    "MARKET_SAMPLE_CSV": "cache/stock_price_data/600519/600519_analysis_20251107.csv",
-}
+from .llm_config import OPENAI_API_KEY, OPENAI_MODEL, OPENAI_BASE_URL
+
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("INSIGHT_AGENT")
@@ -71,12 +65,22 @@ class MarketSnapshot(BaseModel):
 class InsightOutput(BaseModel):
     request_id: str
     ticker: str
+
+    # Educational fields controlled by your app, not by the LLM:
+    user_prediction: Optional[str] = None   # "up" / "down" / "flat" / None
+    result: Optional[str] = "unknown"       # true realized direction later: "up" / "down" / "flat" / "unknown"
+
+    # LLM-generated content:
     model_prediction: Dict[str, Any]
     explanation_short: str
     teaching_note: str
     supporting_facts: List[str]
+    factors: List[Dict[str, Any]] = []
+    indicators: List[Dict[str, Any]] = []
+
     disclaimer: str
     generated_at: str
+
 
 
 # --------------------------------------------------------------------------------
@@ -134,24 +138,38 @@ def load_market_csv(path: str) -> MarketSnapshot:
 # --------------------------------------------------------------------------------
 # Call OpenRouter (LLM)
 # --------------------------------------------------------------------------------
-def call_openrouter(prompt: str) -> Optional[Dict[str, Any]]:
-    if "paste-your-api-key" in CONFIG["OPENROUTER_API_KEY"]:
-        log.error("No API key set in CONFIG['OPENROUTER_API_KEY']")
+def call_llm(prompt: str) -> Optional[Dict[str, Any]]:
+    """
+    Call OpenAI's chat completion API using the shared config in llm_config.py.
+    Returns a Python dict parsed from the JSON the model outputs.
+    """
+    if "paste-your-openai-key-here" in OPENAI_API_KEY:
+        log.error("No API key set in OPENAI_API_KEY (see llm_config.py).")
         return None
 
     headers = {
-        "Authorization": f"Bearer {CONFIG['OPENROUTER_API_KEY']}",
+        "Authorization": f"Bearer {OPENAI_API_KEY}",
         "Content-Type": "application/json",
     }
 
     body = {
-        "model": CONFIG["OPENROUTER_MODEL"],
-        "messages": [{"role": "user", "content": prompt}],
+        "model": OPENAI_MODEL,
+        "messages": [
+            {
+                "role": "user",
+                "content": prompt,
+            }
+        ],
         "temperature": 0.2,
     }
 
     try:
-        r = requests.post(CONFIG["OPENROUTER_BASE_URL"] + "/chat/completions", headers=headers, json=body, timeout=25)
+        r = requests.post(
+            f"{OPENAI_BASE_URL}/chat/completions",
+            headers=headers,
+            json=body,
+            timeout=25,
+        )
     except Exception as e:
         log.error(f"LLM request failed: {e}")
         return None
@@ -201,14 +219,35 @@ def _compute_simple_confidence(sentiment: SentimentSummary, market: MarketSnapsh
     return round(max(0.0, min(1.0, avg)), 2)
 
 
-def run_insight(sentiment: SentimentSummary, market: MarketSnapshot) -> InsightOutput:
-    prompt = f"""
-You are an investment insight agent. Analyze sentiment + technical indicators and return ONLY valid JSON.
+def run_insight(
+    sentiment: SentimentSummary,
+    market: MarketSnapshot,
+    user_prediction: Optional[str] = None,
+    result: Optional[str] = "unknown",
+) -> InsightOutput:
+    """
+    user_prediction:
+        - "up" / "down" / "flat" if the user made a guess in chat
+        - None if the user didn't give any prediction
+    result:
+        - actual realized direction ("up" / "down" / "flat") to be filled later
+        - at prediction time we typically use "unknown"
+    """
 
-Rules:
-- MA trend > RSI > MACD > Sentiment
-- If signals conflict: direction = "flat"
-- Include a confidence float between 0 and 1
+    prompt = f"""
+You are an investment insight agent. Analyze sentiment + technical indicators and return ONLY valid JSON
+(no markdown, no code fences, no extra commentary).
+
+Priority of signals when forming a view:
+1. Moving-average (MA) trend
+2. RSI
+3. MACD
+4. Sentiment
+
+Conflict rule:
+- If key indicators conflict (e.g., MA suggests up but RSI is overbought or MACD is weakening), set direction = "flat".
+
+Use English for all text fields.
 
 INPUT:
 SentimentLabel={sentiment.overall_sentiment.get("label")}
@@ -218,33 +257,68 @@ Trend30d={sentiment.time_series_sentiment.get("recent_30d") if sentiment.time_se
 Distribution={sentiment.sentiment_distribution}
 
 Market:
+Date={market.date}
 Close={market.close}
 MA5={market.ma5}, MA10={market.ma10}, MA20={market.ma20}
 RSI={market.rsi}, MACD={market.macd}, Signal={market.signal_line}, Hist={market.macd_hist}
 VolRatio={market.volume_ratio}, ATR={market.atr}, Volatility={market.historical_volatility}
 
-Return JSON EXACTLY in this schema:
+Return JSON EXACTLY in this structure (no extra top-level keys):
+
 {{
- "model_prediction": {{
-     "direction": "up/down/flat",
-     "confidence": 0.0,
-     "reason": "one-sentence reason"
- }},
- "explanation_short": "one-sentence explanation",
- "teaching_note": "how to interpret these indicators",
- "supporting_facts": ["fact1", "fact2"],
- "disclaimer": "Educational only. Not financial advice."
+  "model_prediction": {{
+    "direction": "up" | "down" | "flat",
+    "confidence": 0.0,
+    "reason": "one-sentence reason"
+  }},
+  "explanation_short": "one-sentence explanation",
+  "teaching_note": "how to interpret these indicators",
+  "supporting_facts": [
+    "short bullet fact about price / MA / volume / etc.",
+    "another short bullet fact"
+  ],
+  "factors": [
+    {{
+      "name": "MA",
+      "value": "Price above MA5, MA10, and MA20",
+      "impact": "positive"  // one of "positive", "negative", or "neutral"
+    }},
+    {{
+      "name": "MACD",
+      "value": "MACD above signal with positive histogram",
+      "impact": "positive"
+    }}
+  ],
+  "indicators": [
+    {{
+      "indicator": "MACD",
+      "reading": "MACD above signal, bullish momentum"
+    }},
+    {{
+      "indicator": "RSI",
+      "reading": "RSI in neutral zone"
+    }},
+    {{
+      "indicator": "MA",
+      "reading": "price above all key moving averages"
+    }}
+  ],
+  "disclaimer": "Educational only. Not financial advice."
 }}
 """
 
-    llm_out = call_openrouter(prompt) or {}
+    llm_out = call_llm(prompt) or {}
 
-    # normalize returned structure
-    model_prediction = llm_out.get("model_prediction") if isinstance(llm_out.get("model_prediction"), dict) else {}
-    # ensure direction exists
+    # ---------------------------
+    # Normalize returned structure
+    # ---------------------------
+    raw_model_pred = llm_out.get("model_prediction")
+    model_prediction = raw_model_pred if isinstance(raw_model_pred, dict) else {}
+
     direction = model_prediction.get("direction", "unknown")
     confidence = model_prediction.get("confidence")
-    # if LLM didn't supply confidence, compute fallback
+
+    # If LLM didn't supply a numeric confidence, compute fallback
     if not isinstance(confidence, (int, float)):
         confidence = _compute_simple_confidence(sentiment, market)
 
@@ -255,17 +329,39 @@ Return JSON EXACTLY in this schema:
     }
 
     explanation_short = llm_out.get("explanation_short") or llm_out.get("explanation", "No explanation produced.")
-    teaching_note = llm_out.get("teaching_note", "Sentiment provides early signals; confirm with indicators.")
-    supporting_facts = llm_out.get("supporting_facts") if isinstance(llm_out.get("supporting_facts"), list) else [str(llm_out.get("supporting_facts", "No supporting facts."))]
+    teaching_note = llm_out.get("teaching_note", "When multiple signals are present, prioritize MA trend, then RSI, then MACD, then sentiment.")
+
+    supporting_facts_raw = llm_out.get("supporting_facts")
+    if isinstance(supporting_facts_raw, list):
+        supporting_facts = [str(x) for x in supporting_facts_raw]
+    else:
+        supporting_facts = [str(supporting_facts_raw or "No supporting facts.")]
+
+    factors_raw = llm_out.get("factors")
+    if isinstance(factors_raw, list):
+        factors = [x for x in factors_raw if isinstance(x, dict)]
+    else:
+        factors = []
+
+    indicators_raw = llm_out.get("indicators")
+    if isinstance(indicators_raw, list):
+        indicators = [x for x in indicators_raw if isinstance(x, dict)]
+    else:
+        indicators = []
+
     disclaimer = llm_out.get("disclaimer", "Educational only. Not financial advice.")
 
     return InsightOutput(
         request_id=f"req-{uuid.uuid4().hex[:8]}",
         ticker=sentiment.stock_code,
+        user_prediction=user_prediction,   # <- from your app / chat
+        result=result,                     # <- "unknown" now; fill later when you know the truth
         model_prediction=model_prediction_normalized,
         explanation_short=explanation_short,
         teaching_note=teaching_note,
         supporting_facts=supporting_facts,
+        factors=factors,
+        indicators=indicators,
         disclaimer=disclaimer,
         generated_at=datetime.now().isoformat(),
     )

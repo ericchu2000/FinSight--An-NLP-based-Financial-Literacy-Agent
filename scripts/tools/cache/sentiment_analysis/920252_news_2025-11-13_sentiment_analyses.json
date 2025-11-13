@@ -1,0 +1,1407 @@
+{
+  "analysis_date": "2025-11-13",
+  "total_news_count": 30,
+  "overall_sentiment": {
+    "label": "neutral",
+    "score": 0.6,
+    "confidence": 0.38
+  },
+  "sentiment_distribution": {
+    "positive": 3,
+    "neutral": 27,
+    "negative": 0
+  },
+  "time_series_sentiment": {
+    "recent_7d": 0.63,
+    "recent_30d": 0.59,
+    "all_time": 0.6
+  },
+  "detailed_analyses": [
+    {
+      "title": "786只股短线走稳 站上五日均线",
+      "content": "今日有786只A股价格突破了五日均线，其中乖离率较大的个股有天宏锂电、盛弘股份、壹石通等，乖离率分别为16.59%",
+      "publish_time": "2025-11-13 14:31:40",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 15,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 51,
+        "matched_words": [
+          "突破"
+        ],
+        "detailed_words": [
+          {
+            "word": "突破",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 11,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.6,
+        "confidence": 0.29
+      }
+    },
+    {
+      "title": "超3800股上涨 锂电池、存储芯片爆发 天宏锂电涨超26%",
+      "content": "锂电池概念走强，天宏锂电涨超26%，中利集团、融捷股份、维科技术等多股涨停。",
+      "publish_time": "2025-11-13 12:26:59",
+      "source": "21世纪经济报道",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.57,
+        "matched_words_count": 2,
+        "total_words_count": 25,
+        "matched_words": [
+          "上涨",
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 6,
+            "negated": false
+          },
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 20,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.56,
+        "matched_words_count": 2,
+        "total_words_count": 32,
+        "matched_words": [
+          "涨",
+          "涨停"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 11,
+            "negated": false
+          },
+          {
+            "word": "涨停",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 31,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "positive",
+        "score": 0.83,
+        "confidence": 0.56
+      }
+    },
+    {
+      "title": "今日1085只个股突破五日均线",
+      "content": "今日有1085只A股价格突破了五日均线，其中乖离率较大的个股有天宏锂电、佰维存储、德瑞锂电等，乖离率分别为17.41%",
+      "publish_time": "2025-11-13 12:02:10",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.53,
+        "matched_words_count": 1,
+        "total_words_count": 14,
+        "matched_words": [
+          "突破"
+        ],
+        "detailed_words": [
+          {
+            "word": "突破",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 9,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 53,
+        "matched_words": [
+          "突破"
+        ],
+        "detailed_words": [
+          {
+            "word": "突破",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 12,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.75,
+        "confidence": 0.51
+      }
+    },
+    {
+      "title": "个股异动 | 储能板块爆发 天宏锂电一度触及涨停",
+      "content": "上证报中国证券网讯（记者冯心怡）11月13日，储能板块爆发，天宏锂电一度触及涨停。",
+      "publish_time": "2025-11-13 11:19:07",
+      "source": "上海证券报·中国证券网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 19,
+        "matched_words": [
+          "涨停"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨停",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 18,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 35,
+        "matched_words": [
+          "涨停"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨停",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 34,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.75,
+        "confidence": 0.51
+      }
+    },
+    {
+      "title": "688只股短线走稳 站上五日均线",
+      "content": "今日有688只A股价格突破了五日均线，其中乖离率较大的个股有天宏锂电、佰维存储、合肥城建等，乖离率分别为15.89%",
+      "publish_time": "2025-11-13 10:49:26",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 15,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 52,
+        "matched_words": [
+          "突破"
+        ],
+        "detailed_words": [
+          {
+            "word": "突破",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 11,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.6,
+        "confidence": 0.29
+      }
+    },
+    {
+      "title": "21只北交所股票融资余额增加超百万元",
+      "content": "天宏锂电-4.902806.7081.811.39电力设备920089禾昌聚合0.354198.7281.662.21基础化工",
+      "publish_time": "2025-11-13 09:47:46",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 17,
+        "matched_words": [
+          "增加"
+        ],
+        "detailed_words": [
+          {
+            "word": "增加",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 12,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 54,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "33只北交所股票获融资净买入超百万元",
+      "content": "天宏锂电-2.912809.91193.661.37电力设备920057百甲科技-0.27648.31193.610.76",
+      "publish_time": "2025-11-11 09:39:36",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 18,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 51,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "天宏锂电等成立新公司，含集成电路芯片业务",
+      "content": "材料技术推广服务；合同能源管理等。企查查股权穿透显示，该公司由天宏锂电等共同持股。",
+      "publish_time": "2025-11-10 15:11:59",
+      "source": "人民财讯",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 19,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 37,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "杠杆资金加仓北交所股票名单",
+      "content": "0.982896.93195.382.24轻工制造920252天宏锂电4.352616.25168.711.24电力设备",
+      "publish_time": "2025-11-10 10:03:04",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 13,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 52,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "杠杆资金加仓北交所股票名单",
+      "content": "天宏锂电4.502764.60459.271.28电力设备920195三祥科技-8.771514.55447.110.94",
+      "publish_time": "2025-10-31 09:41:34",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 13,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 52,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "天宏锂电：2025年前三季度净利润679.65万元 同比增长74.65%",
+      "content": "中证智能财讯天宏锂电（920252）10月28日披露2025年第三季度报告。",
+      "publish_time": "2025-10-29 01:46:40",
+      "source": "中国证券报·中证网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.56,
+        "matched_words_count": 2,
+        "total_words_count": 30,
+        "matched_words": [
+          "利润",
+          "增长"
+        ],
+        "detailed_words": [
+          {
+            "word": "利润",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 14,
+            "negated": false
+          },
+          {
+            "word": "增长",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 24,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 35,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.7,
+        "confidence": 0.33
+      }
+    },
+    {
+      "title": "杠杆资金加仓北交所股票名单",
+      "content": "天宏锂电-0.072165.46315.771.14电力设备920640富士达0.635867.60306.591.13通信",
+      "publish_time": "2025-10-28 10:03:51",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 13,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 53,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "274股融资余额增幅超5%",
+      "content": "天宏锂电1849.68-18.130.87电力设备603786科博达27322.83-18.003.72汽车301227森鹰窗业",
+      "publish_time": "2025-10-27 09:37:55",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 13,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 56,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "杠杆资金加仓北交所股票名单",
+      "content": "天宏锂电-4.192233.9597.421.19电力设备920576天力复合2.652288.6",
+      "publish_time": "2025-10-23 09:37:55",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 13,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 42,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "59只北交所股票获融资净买入超百万元",
+      "content": "联2.60641.96124.030.77电力设备920252天宏锂电-0.932136.53122.221.09电力设备",
+      "publish_time": "2025-10-22 09:37:53",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 18,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 52,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "266股获杠杆资金大手笔加仓",
+      "content": "天宏锂电2113.95-12.922.64电力设备603222济民健康24040.73-12.821.91医药生物301413",
+      "publish_time": "2025-10-17 09:42:18",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 14,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.69,
+        "confidence": 0.48,
+        "matched_words_count": 1,
+        "total_words_count": 54,
+        "matched_words": [
+          "健康"
+        ],
+        "detailed_words": [
+          {
+            "word": "健康",
+            "type": "positive",
+            "strength": "weak",
+            "weight": 0.6,
+            "position": 29,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.58,
+        "confidence": 0.28
+      }
+    },
+    {
+      "title": "中国锂电出口管制升级，相关公司作出回应",
+      "content": "导智能(300450.SZ)、亿纬锂能(300014.SZ)、天宏锂电920252",
+      "publish_time": "2025-10-10 21:13:11",
+      "source": "界面新闻",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 17,
+        "matched_words": [
+          "升级"
+        ],
+        "detailed_words": [
+          {
+            "word": "升级",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 8,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 33,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "13只北交所股票融资余额增加超500万元",
+      "content": "1.123044.26375.541.07电力设备920252天宏锂电-1.562538.63368.041.11电力",
+      "publish_time": "2025-10-10 09:39:09",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 19,
+        "matched_words": [
+          "增加"
+        ],
+        "detailed_words": [
+          {
+            "word": "增加",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 12,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 50,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.65,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "天宏锂电换手率22.67%，龙虎榜上机构买入753.71万元，卖出1154.94万元",
+      "content": "（数据宝）天宏锂电9月19日交易公开信息买/卖会员营业部名称买入金额（万元）卖出金额（万元）买一 东方财富证券股份有限公司拉萨团结路第一证券营业部",
+      "publish_time": "2025-09-19 21:51:02",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 37,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 65,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    },
+    {
+      "title": "天宏锂电龙虎榜：营业部净卖出1621.17万元",
+      "content": "天宏锂电（873152）今日上涨3.82%，全天换手率24.72%，成交额5.84亿元，振幅19.97%。",
+      "publish_time": "2025-09-17 18:18:57",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 21,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.55,
+        "matched_words_count": 2,
+        "total_words_count": 40,
+        "matched_words": [
+          "上涨",
+          "成交额"
+        ],
+        "detailed_words": [
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 12,
+            "negated": false
+          },
+          {
+            "word": "成交额",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 27,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.63,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "天宏锂电9月15日龙虎榜数据",
+      "content": "天宏锂电（873152）今日上涨12.72%，全天换手率31.90%，成交额7.40亿元，振幅28.34%。",
+      "publish_time": "2025-09-15 21:42:12",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 14,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.55,
+        "matched_words_count": 2,
+        "total_words_count": 41,
+        "matched_words": [
+          "上涨",
+          "成交额"
+        ],
+        "detailed_words": [
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 12,
+            "negated": false
+          },
+          {
+            "word": "成交额",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 28,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.63,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "天宏锂电：半年度拟10派0.29元 股权登记日为9月19日",
+      "content": "之前公告显示，今年以来，天宏锂电新获得专利授权8个，较去年同期增加300%。",
+      "publish_time": "2025-09-15 21:34:01",
+      "source": "上海证券报·中国证券网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 26,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 33,
+        "matched_words": [
+          "增加"
+        ],
+        "detailed_words": [
+          {
+            "word": "增加",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 28,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.6,
+        "confidence": 0.29
+      }
+    },
+    {
+      "title": "储能概念持续活跃 天宏锂电涨超10% 宁德时代创历史新高！",
+      "content": "亚精工、卧龙新能、荣盛发展、万向钱潮等多只个股涨停，开特股份、天宏锂电、湖南裕能涨超10%，",
+      "publish_time": "2025-09-15 17:18:06",
+      "source": "21世纪经济报道",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.57,
+        "matched_words_count": 2,
+        "total_words_count": 23,
+        "matched_words": [
+          "涨",
+          "历史新高"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 12,
+            "negated": false
+          },
+          {
+            "word": "历史新高",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 22,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.55,
+        "matched_words_count": 2,
+        "total_words_count": 38,
+        "matched_words": [
+          "涨停",
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨停",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 20,
+            "negated": false
+          },
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 33,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "positive",
+        "score": 0.83,
+        "confidence": 0.56
+      }
+    },
+    {
+      "title": "动力电池概念持续走强 宁德时代涨超10%",
+      "content": "民财讯9月15日电，动力电池概念持续走强，截至发稿，宁德时代、天宏锂电涨超10%，此前天赐材料涨停。",
+      "publish_time": "2025-09-15 10:10:24",
+      "source": "人民财讯",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 19,
+        "matched_words": [
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 14,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.55,
+        "matched_words_count": 2,
+        "total_words_count": 43,
+        "matched_words": [
+          "涨",
+          "涨停"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 31,
+            "negated": false
+          },
+          {
+            "word": "涨停",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 42,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "positive",
+        "score": 0.78,
+        "confidence": 0.53
+      }
+    },
+    {
+      "title": "天宏锂电龙虎榜数据（9月10日）",
+      "content": "天宏锂电(873152)今日下跌9.21%，全天换手率23.48%，成交额5.17亿元，振幅11.54%。",
+      "publish_time": "2025-09-10 17:22:03",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 14,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.42,
+        "matched_words_count": 2,
+        "total_words_count": 40,
+        "matched_words": [
+          "下跌",
+          "成交额"
+        ],
+        "detailed_words": [
+          {
+            "word": "下跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 12,
+            "negated": false
+          },
+          {
+            "word": "成交额",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 27,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.41
+      }
+    },
+    {
+      "title": "天宏锂电9月9日龙虎榜数据",
+      "content": "天宏锂电(873152)今日上涨7.26%，全天换手率31.22%，成交额6.91亿元，振幅16.29%。",
+      "publish_time": "2025-09-09 21:32:39",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 13,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.55,
+        "matched_words_count": 2,
+        "total_words_count": 40,
+        "matched_words": [
+          "上涨",
+          "成交额"
+        ],
+        "detailed_words": [
+          {
+            "word": "上涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 12,
+            "negated": false
+          },
+          {
+            "word": "成交额",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 27,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.63,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "天宏锂电换手率42.58%，龙虎榜上榜营业部合计净卖出1718.86万元",
+      "content": "天宏锂电（873152）今日下跌12.08%，全天换手率42.58%，成交额10.51亿元，振幅35.42%。",
+      "publish_time": "2025-09-08 17:09:01",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 33,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.42,
+        "matched_words_count": 2,
+        "total_words_count": 42,
+        "matched_words": [
+          "下跌",
+          "成交额"
+        ],
+        "detailed_words": [
+          {
+            "word": "下跌",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 12,
+            "negated": false
+          },
+          {
+            "word": "成交额",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 28,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.41
+      }
+    },
+    {
+      "title": "一周大涨近80%！北交所连板股，机构现身！",
+      "content": "天宏锂电提示投资者理性投资，注意风险。天宏锂电再度登上北交所“龙虎榜”。",
+      "publish_time": "2025-09-06 03:08:12",
+      "source": "北证资讯",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.75,
+        "confidence": 0.52,
+        "matched_words_count": 1,
+        "total_words_count": 18,
+        "matched_words": [
+          "涨"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 3,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "negative",
+        "sentiment_score": 0.25,
+        "confidence": 0.51,
+        "matched_words_count": 1,
+        "total_words_count": 30,
+        "matched_words": [
+          "风险"
+        ],
+        "detailed_words": [
+          {
+            "word": "风险",
+            "type": "negative",
+            "strength": "strong",
+            "weight": -1.0,
+            "position": 15,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.55,
+        "confidence": 0.28
+      }
+    },
+    {
+      "title": "天宏锂电龙虎榜数据（9月5日）",
+      "content": "天宏锂电（873152）今日涨停，全天换手率24.87%，成交额5.72亿元，振幅20.18%。",
+      "publish_time": "2025-09-05 17:56:42",
+      "source": "证券时报网",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 13,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "positive",
+        "sentiment_score": 0.83,
+        "confidence": 0.56,
+        "matched_words_count": 2,
+        "total_words_count": 36,
+        "matched_words": [
+          "涨停",
+          "成交额"
+        ],
+        "detailed_words": [
+          {
+            "word": "涨停",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 12,
+            "negated": false
+          },
+          {
+            "word": "成交额",
+            "type": "positive",
+            "strength": "strong",
+            "weight": 1.0,
+            "position": 23,
+            "negated": false
+          }
+        ],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.63,
+        "confidence": 0.31
+      }
+    },
+    {
+      "title": "天宏锂电、天际股份两连板",
+      "content": "9月5日，A股市场呈现显著分化格局，固态电池再度全线走强，天宏锂电（873152.BJ）、天际股份（002759.SZ",
+      "publish_time": "2025-09-05 12:31:48",
+      "source": "21世纪经济报道",
+      "title_analysis": {
+        "text_type": "title",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 11,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "content_analysis": {
+        "text_type": "content",
+        "sentiment_label": "neutral",
+        "sentiment_score": 0.5,
+        "confidence": 0.4,
+        "matched_words_count": 0,
+        "total_words_count": 50,
+        "matched_words": [],
+        "detailed_words": [],
+        "method": "dictionary_based"
+      },
+      "final_sentiment": {
+        "label": "neutral",
+        "score": 0.5,
+        "confidence": 0.4
+      }
+    }
+  ],
+  "stock_code": "920252",
+  "data_source": "C:\\Users\\cgp24\\Desktop\\nlp_data_prep\\scripts\\tools\\cache\\news\\stock_news\\920252\\920252_news_2025-11-13.json"
+}
