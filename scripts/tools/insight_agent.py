@@ -23,7 +23,11 @@ from pydantic import BaseModel
 # --------------------------------------------------------------------------------
 # CONFIG (edit paths / model info as needed)
 # --------------------------------------------------------------------------------
-from .llm_config import OPENAI_API_KEY, OPENAI_MODEL, OPENAI_BASE_URL
+try:
+    from .llm_config import OPENAI_API_KEY, OPENAI_MODEL, OPENAI_BASE_URL
+except ImportError:
+    # fallback for fresh clones / public repo (safe template)
+    from .llm_config_template import OPENAI_API_KEY, OPENAI_MODEL, OPENAI_BASE_URL
 
 
 logging.basicConfig(level=logging.INFO)
