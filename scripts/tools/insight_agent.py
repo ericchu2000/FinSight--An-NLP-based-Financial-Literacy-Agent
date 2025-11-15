@@ -380,7 +380,8 @@ def save_to_cache(result: InsightOutput, base_dir: Optional[str] = None) -> str:
     os.makedirs(folder, exist_ok=True)
     fpath = os.path.join(folder, f"{result.ticker}_{result.request_id}.json")
     with open(fpath, "w", encoding="utf-8") as f:
-        f.write(result.model_dump_json(indent=2, ensure_ascii=False))
+        json_str = result.model_dump_json(indent=2)
+        f.write(json_str)
     log.info(f"Saved insight to: {fpath}")
     return fpath
 

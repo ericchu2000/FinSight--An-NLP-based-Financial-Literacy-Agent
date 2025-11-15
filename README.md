@@ -40,6 +40,10 @@ playwright install chromium  # 必须手动执行
 ```
 ---
 
+## LLM KEY
+一定要**确保**将llm_config_template.py更名(rename)为llm_config.py，并在其中置入正确的openai api key，否则将报错
+
+---
 ## 快速指令（从项目根目录 nlp_project_data_prepare 执行）
 
 ### 1. Generate market CSV (technical indicator file)
@@ -99,8 +103,20 @@ Output:
 cache/insight_reports/<ticker>_<request_id>.json
 ```
 
+### 5. Generate Financial Education Report (LLM explanation)
 
-### 5. Full pipeline (data → news → sentiment → insight)
+Using an **Insight JSON** file (recommended — saves automatically to `education_reports`):
+
+```sh
+python -m scripts.education_agent.financial_educator \
+  -f scripts/tools/cache/insight_reports/601857_req-xxxx.json
+```
+Output:
+```
+cache/education_reports/<ticker>_<request_id>.md
+```
+
+### 6. Full pipeline (data → news → sentiment → insight)
 ```sh
 python -m scripts.tools.run_pipeline --ticker 601857 --days 365 --max-news 30
 ```

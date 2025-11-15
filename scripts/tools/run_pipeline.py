@@ -5,6 +5,13 @@ One-command pipeline for FinSight demo.
 
 Usage (from project root):
     python -m scripts.tools.run_pipeline --ticker 601857
+
+Pipeline:
+    1) Market data + technical indicators
+    2) News crawling
+    3) Sentiment analysis
+    4) Insight agent (LLM JSON)
+    5) Education agent (LLM explanation in Markdown)
 """
 
 import os
@@ -14,6 +21,7 @@ import glob
 import logging
 from datetime import datetime, timedelta
 from typing import Optional
+import argparse
 
 # Make project root importable
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -24,7 +32,7 @@ from scripts.tools.data_analyzer import analyze_stock_data
 from scripts.tools.news_crawler import get_stock_news
 from scripts.tools.sentiment_analyzer import SentimentAnalyzer, save_analysis_result
 from scripts.tools import insight_agent
-import argparse
+from scripts.education_agent.financial_educator import generate_education_from_file
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger("FIN_SIGHT_PIPELINE")
@@ -35,14 +43,14 @@ CACHE_BASE = os.path.join(BASE_DIR, "cache")              # scripts/tools/cache/
 
 
 def find_latest_market_csv(symbol: str):
-    """同目录找到最新市场csv文件"""
+    """Find latest market CSV file for a given symbol."""
     pattern = os.path.join(CACHE_BASE, "stock_price_data", symbol, f"{symbol}_analysis_*.csv")
     files = sorted(glob.glob(pattern))
     return files[-1] if files else None
 
 
 def find_latest_news_json(symbol: str, date: Optional[str] = None):
-    """找到最新新闻数据的json"""
+    """Find latest news JSON file for a given symbol."""
     if date:
         candidate = os.path.join(CACHE_BASE, "news", "stock_news", symbol, f"{symbol}_news_{date}.json")
         return candidate if os.path.exists(candidate) else None
@@ -119,13 +127,38 @@ def run_pipeline(symbol: str, days: int = 365, max_news: int = 30):
     market_obj = insight_agent.load_market_csv(market_csv)
 
     insight_output = insight_agent.run_insight(sentiment_obj, market_obj)
-    insight_agent.save_to_cache(insight_output)
 
-    log.info("🎯 Pipeline complete — insight report generated.")
+    # Save insight JSON and capture its path
+    insight_path = insight_agent.save_to_cache(insight_output)
+    log.info(f"✅ Insight report saved: {insight_path}")
+
+    # -------------------- 5. Education Agent --------------------
+    log.info("▶ Step 5: generating education report")
+
+    try:
+        # Generate education markdown content from the insight JSON
+        edu_md = generate_education_from_file(insight_path, use_factcheck=True)
+
+        edu_dir = os.path.join(CACHE_BASE, "education_reports")
+        os.makedirs(edu_dir, exist_ok=True)
+
+        edu_fname = os.path.basename(insight_path).replace(".json", ".md")
+        edu_path = os.path.join(edu_dir, edu_fname)
+
+        with open(edu_path, "w", encoding="utf-8") as f:
+            f.write(edu_md)
+
+        log.info(f"✅ Education report saved: {edu_path}")
+    except Exception as e:
+        log.error(f"⚠ Failed to generate education report: {e}")
+
+    log.info("🎯 Pipeline complete — insight + education reports generated.")
 
 
 def main():
-    parser = argparse.ArgumentParser(description="FinSight pipeline: data → news → sentiment → insight")
+    parser = argparse.ArgumentParser(
+        description="FinSight pipeline: data → news → sentiment → insight → education"
+    )
     parser.add_argument("--ticker", "-t", required=True, help="stock ticker (e.g., 601857)")
     parser.add_argument("--days", "-d", type=int, default=365, help="days of market data to fetch")
     parser.add_argument("--max-news", type=int, default=30, help="max news items to collect")

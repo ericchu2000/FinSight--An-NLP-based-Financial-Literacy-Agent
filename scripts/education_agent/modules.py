@@ -3,79 +3,80 @@ import json
 import time
 from typing import Dict, Any, List
 
-class BailianClient:
-    """阿里云百炼API客户端"""
-    
-    def __init__(self, api_key: str):
-        """
-        初始化百炼客户端
-        
-        Args:
-            api_key: 阿里云百炼API密钥
-        """
-        self.api_key = api_key
-        self.base_url = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
+# Import shared LLM config from tools package
+from scripts.tools.llm_config import OPENAI_API_KEY, OPENAI_MODEL, OPENAI_BASE_URL
+
+
+class OpenAIClient:
+    """OpenAI API client for financial education agent."""
+
+    def __init__(self):
+        if not OPENAI_API_KEY or "paste-your-openai-key-here" in OPENAI_API_KEY:
+            # We don't raise here to allow higher-level code to handle/log it,
+            # but any actual call will fail clearly.
+            print(
+                "[OpenAIClient] WARNING: OPENAI_API_KEY not set or placeholder "
+                "(see scripts/tools/llm_config.py)."
+            )
+
+        self.api_key = OPENAI_API_KEY
+        self.base_url = OPENAI_BASE_URL.rstrip("/")
+        self.model = OPENAI_MODEL
+
         self.headers = {
-            "Authorization": f"Bearer {api_key}",
+            "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
-            "X-DashScope-SSE": "disable"
         }
-    
-    def call_qwen_plus(self, prompt: str, max_tokens: int = 2048, temperature: float = 0.1) -> Dict[str, Any]:
+
+    def call_llm(
+        self,
+        prompt: str,
+        max_tokens: int = 2048,
+        temperature: float = 0.1,
+    ) -> Dict[str, Any]:
         """
-        调用通义千问-Plus模型
-        
+        Call OpenAI chat completion API.
+
         Args:
-            prompt: 输入提示词（字符串或messages列表）
-            max_tokens: 最大生成token数
-            temperature: 温度参数，控制随机性
-            
+            prompt: User prompt (string).
+            max_tokens: Max tokens to generate.
+            temperature: Sampling temperature.
+
         Returns:
-            包含响应结果的字典
+            Dict with:
+              - success (bool)
+              - content (str)
+              - input_tokens (int)
+              - output_tokens (int)
+              - total_tokens (int)
+              - response_time (float, seconds)
+              - error (str, if any)
         """
-        # 支持字符串或messages格式
-        if isinstance(prompt, dict) and "messages" in prompt:
-            messages = prompt["messages"]
-        else:
-            messages = [{"role": "user", "content": prompt}]
-            
+        messages = [{"role": "user", "content": prompt}]
         payload = {
-            "model": "qwen-plus",
-            "input": {
-                "messages": messages
-            },
-            "parameters": {
-                "max_tokens": max_tokens,
-                "temperature": temperature,
-                "result_format": "message"
-            }
+            "model": self.model,
+            "messages": messages,
+            "temperature": temperature,
+            "max_tokens": max_tokens,
         }
-        
+
+        start_time = time.time()
         try:
             response = requests.post(
-                self.base_url,
+                f"{self.base_url}/chat/completions",
                 headers=self.headers,
                 json=payload,
-                timeout=60
+                timeout=60,
             )
+            response_time = time.time() - start_time
             response.raise_for_status()
-            
+
             result = response.json()
-            
-            # 提取响应内容
-            if "output" in result and "choices" in result["output"]:
-                content = result["output"]["choices"][0]["message"]["content"]
-                usage = result.get("usage", {})
-                
-                return {
-                    "success": True,
-                    "content": content,
-                    "input_tokens": usage.get("input_tokens", 0),
-                    "output_tokens": usage.get("output_tokens", 0),
-                    "total_tokens": usage.get("total_tokens", 0),
-                    "response_time": response.elapsed.total_seconds()
-                }
-            else:
+
+            # Extract content and usage
+            try:
+                content = result["choices"][0]["message"]["content"]
+            except Exception:
                 return {
                     "success": False,
                     "error": f"Unexpected response format: {result}",
@@ -83,10 +84,21 @@ class BailianClient:
                     "input_tokens": 0,
                     "output_tokens": 0,
                     "total_tokens": 0,
-                    "response_time": response.elapsed.total_seconds()
+                    "response_time": response_time,
                 }
-                
+
+            usage = result.get("usage", {})
+            return {
+                "success": True,
+                "content": content,
+                "input_tokens": usage.get("prompt_tokens", 0),
+                "output_tokens": usage.get("completion_tokens", 0),
+                "total_tokens": usage.get("total_tokens", 0),
+                "response_time": response_time,
+            }
+
         except requests.exceptions.RequestException as e:
+            response_time = time.time() - start_time
             return {
                 "success": False,
                 "error": f"Request failed: {str(e)}",
@@ -94,9 +106,10 @@ class BailianClient:
                 "input_tokens": 0,
                 "output_tokens": 0,
                 "total_tokens": 0,
-                "response_time": 0
+                "response_time": response_time,
             }
         except Exception as e:
+            response_time = time.time() - start_time
             return {
                 "success": False,
                 "error": f"Unexpected error: {str(e)}",
@@ -104,18 +117,18 @@ class BailianClient:
                 "input_tokens": 0,
                 "output_tokens": 0,
                 "total_tokens": 0,
-                "response_time": 0
+                "response_time": response_time,
             }
 
 
 def create_zero_shot_prompt(problem_description: str, function_signature: str) -> str:
     """
     创建零样本提示词
-    
+
     Args:
         problem_description: 问题描述
         function_signature: 函数签名
-        
+
     Returns:
         格式化后的提示词
     """
@@ -141,43 +154,42 @@ def create_zero_shot_prompt(problem_description: str, function_signature: str) -
 def extract_function_code(response_content: str) -> str:
     """
     从AI响应中提取函数代码
-    
+
     Args:
         response_content: AI的响应内容
-        
+
     Returns:
         提取的函数代码
     """
     # 移除可能的markdown代码块标记
-    lines = response_content.split('\n')
-    
+    lines = response_content.split("\n")
+
     # 移除开头的```python或```
-    if lines and lines[0].strip().startswith('```'):
+    if lines and lines[0].strip().startswith("```"):
         lines = lines[1:]
-    
+
     # 移除结尾的```
-    if lines and lines[-1].strip() == '```':
+    if lines and lines[-1].strip() == "```":
         lines = lines[:-1]
-    
+
     # 合并代码
-    code = '\n'.join(lines).strip()
-    
+    code = "\n".join(lines).strip()
     return code
 
 
-# 全局客户端实例
-bailian_client = BailianClient("sk-00c0fc19147d468cbb23f1c5ed46f0fb")
+# 全局客户端实例（可选测试用）
+openai_client = OpenAIClient()
 
 
 if __name__ == "__main__":
-    # 测试代码
+    # 简单测试：生成一个函数代码
     test_prompt = create_zero_shot_prompt(
         "编写一个函数，接收两个整数a和b，返回它们的和",
-        "def add_numbers(a: int, b: int) -> int:"
+        "def add_numbers(a: int, b: int) -> int:",
     )
-    
-    result = bailian_client.call_qwen_plus(test_prompt)
-    
+
+    result = openai_client.call_llm(test_prompt)
+
     if result["success"]:
         print("调用成功！")
         print("生成的代码：")

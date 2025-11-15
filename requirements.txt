@@ -27,3 +27,6 @@ snownlp
 
 # Browser automation
 playwright
+
+# Lite Front end deployment solution
+gradio>=4.0.0

@@ -99,3 +99,5 @@
 - **[主题2]**：[简短描述]
 
 [开放性问题]
+
+Write the entire explanation in English, even if the input or data is in another language.
