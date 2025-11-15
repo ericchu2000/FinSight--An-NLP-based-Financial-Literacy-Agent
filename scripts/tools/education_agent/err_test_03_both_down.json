@@ -1,0 +1,14 @@
+{
+  "stock_name": "阿里巴巴",
+  "predict_result": "下跌",
+  "probability": 0.90,
+  "indicators": [
+    {
+      "indicator": "布林带",
+      "reading": "跌破下轨",
+      "effect": "负面"
+    }
+  ],
+  "user_prediction": "下跌",
+  "user_level": "初级"
+}

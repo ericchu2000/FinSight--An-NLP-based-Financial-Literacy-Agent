@@ -10,7 +10,7 @@ from urllib.parse import urlparse
 
 # 导入新的搜索模块
 try:
-    from cache.web_search import google_search_sync, SearchOptions
+    from .web_search import google_search_sync, SearchOptions
 except ImportError:
     print("警告: 无法导入新的搜索模块，将回退到 akshare")
     google_search_sync = None
@@ -59,7 +59,12 @@ def build_search_query(ticker: str, date: str = None):
         "site:163.com",
         "site:eastmoney.com",
         "site:cnstock.com",
-        "site:hexun.com"
+        "site:hexun.com",
+        "site:10jqka.com.cn",   # 同花顺
+        "site:jrj.com.cn",      # 金融界
+        "site:stcn.com",        # 证券时报网
+        "site:cfi.net.cn",      # 中财网
+        "site:yicai.com",       # 第一财经
     ]
 
     query = f"{base_query} ({' OR '.join(news_sites)})"

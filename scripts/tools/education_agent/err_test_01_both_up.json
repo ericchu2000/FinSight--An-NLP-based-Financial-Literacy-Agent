@@ -1,0 +1,14 @@
+{
+  "stock_name": "阿里巴巴",
+  "predict_result": "上涨",
+  "probability": 0.85,
+  "indicators": [
+    {
+      "indicator": "MACD",
+      "reading": "金叉形成",
+      "effect": "正面"
+    }
+  ],
+  "user_prediction": "上涨",
+  "user_level": "初级"
+}

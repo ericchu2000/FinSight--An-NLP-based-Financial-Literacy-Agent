@@ -1,0 +1,48 @@
+{
+  "prediction": {
+    "result": "上涨",
+    "confidence": 0.78,
+    "timeframe": "一周"
+  },
+  "factors": [
+    {
+      "name": "MACD",
+      "value": "金叉形成",
+      "impact": "正面",
+      "weight": 0.35
+    },
+    {
+      "name": "RSI",
+      "value": "40.5",
+      "impact": "正面",
+      "weight": 0.25
+    },
+    {
+      "name": "移动平均线",
+      "value": "短期均线上穿长期均线",
+      "impact": "正面",
+      "weight": 0.20
+    },
+    {
+      "name": "成交量",
+      "value": "近期放量",
+      "impact": "正面",
+      "weight": 0.15
+    },
+    {
+      "name": "市场情绪",
+      "value": "略微乐观",
+      "impact": "正面",
+      "weight": 0.05
+    }
+  ],
+  "stock": {
+    "name": "阿里巴巴",
+    "code": "BABA",
+    "industry": "电子商务"
+  },
+  "user": {
+    "prediction": "下跌",
+    "experience": "初级"
+  }
+}

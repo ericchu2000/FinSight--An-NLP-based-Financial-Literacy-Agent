@@ -24,3 +24,6 @@ rich
 
 # NLP sentiment analyzer
 snownlp
+
+# Browser automation
+playwright

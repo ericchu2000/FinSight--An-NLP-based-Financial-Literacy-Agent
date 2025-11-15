@@ -35,6 +35,8 @@ nlp_project_data_prepare/
 
 ```
 pip install -r requirements.txt
+
+playwright install chromium  # 必须手动执行
 ```
 ---
 

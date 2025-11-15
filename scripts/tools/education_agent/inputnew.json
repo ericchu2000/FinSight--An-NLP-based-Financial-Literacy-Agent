@@ -1,0 +1,19 @@
+{"request_id": "req-d1807526",  "ticker": "300014",
+  "user_prediction": "down",
+  "result": {
+    "direction": "up",
+    "confidence": 0.78,
+    "reason": "Price is above all moving averages and MACD is above its signal, indicating bullish momentum."
+  },
+  "explanation_short": "Technical indicators show price above MA5, MA10, and MA20, and MACD above signal, supporting an upward bias.",
+  "teaching_note": "When multiple signals are present, prioritize MA trend, then RSI, then MACD, then sentiment; a higher price relative to MAs suggests an uptrend.",
+  "supporting_facts": [
+    "Close 87.37 > MA5 84.182",
+    "Close 87.37 > MA10 82.59",
+    "Close 87.37 > MA20 81.0545",
+    "MACD 2.9526 > Signal 2.8738",
+    "SentimentScore 0.61 indicates neutral but slightly positive sentiment."
+  ],
+  "disclaimer": "Educational only. Not financial advice.",
+  "generated_at": "2025-11-09T21:02:58.470753"
+}
