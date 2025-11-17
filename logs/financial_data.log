@@ -1404,3 +1404,111 @@ hurst_exponent: 217 records
 skewness: 20 records
 2025-11-16 03:34:13 - financial_data - WARNING - 
 kurtosis: 20 records
+2025-11-17 15:24:59 - financial_data - INFO - Fetching price history for 300427 from 2024-11-17 00:00:00 to 2025-11-16 15:24:59.786452
+2025-11-17 15:25:04 - financial_data - INFO - Successfully fetched price history data (242 records)
+2025-11-17 15:25:04 - financial_data - WARNING - Warning: The following indicators contain NaN values:
+2025-11-17 15:25:04 - financial_data - WARNING - 
+momentum_1m: 20 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+momentum_3m: 60 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+momentum_6m: 120 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+volume_ma20: 19 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+volume_momentum: 19 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+historical_volatility: 20 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+volatility_z_score: 139 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+atr: 13 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+atr_ratio: 13 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+hurst_exponent: 242 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+skewness: 20 records
+2025-11-17 15:25:04 - financial_data - WARNING - 
+kurtosis: 20 records
+2025-11-17 15:41:03 - financial_data - INFO - Fetching price history for 300427 from 2024-11-17 00:00:00 to 2025-11-16 15:41:03.344277
+2025-11-17 15:41:07 - financial_data - INFO - Successfully fetched price history data (242 records)
+2025-11-17 15:41:07 - financial_data - WARNING - Warning: The following indicators contain NaN values:
+2025-11-17 15:41:07 - financial_data - WARNING - 
+momentum_1m: 20 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+momentum_3m: 60 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+momentum_6m: 120 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+volume_ma20: 19 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+volume_momentum: 19 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+historical_volatility: 20 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+volatility_z_score: 139 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+atr: 13 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+atr_ratio: 13 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+hurst_exponent: 242 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+skewness: 20 records
+2025-11-17 15:41:07 - financial_data - WARNING - 
+kurtosis: 20 records
+2025-11-17 15:45:36 - financial_data - INFO - Fetching price history for 300560 from 2024-11-17 00:00:00 to 2025-11-16 15:45:36.951653
+2025-11-17 15:45:40 - financial_data - INFO - Successfully fetched price history data (242 records)
+2025-11-17 15:45:40 - financial_data - WARNING - Warning: The following indicators contain NaN values:
+2025-11-17 15:45:40 - financial_data - WARNING - 
+momentum_1m: 20 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+momentum_3m: 60 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+momentum_6m: 120 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+volume_ma20: 19 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+volume_momentum: 19 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+historical_volatility: 20 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+volatility_z_score: 139 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+atr: 13 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+atr_ratio: 13 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+hurst_exponent: 186 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+skewness: 20 records
+2025-11-17 15:45:40 - financial_data - WARNING - 
+kurtosis: 20 records
+2025-11-17 15:46:37 - financial_data - INFO - Fetching price history for 300427 from 2024-11-17 00:00:00 to 2025-11-16 15:46:37.973082
+2025-11-17 15:46:42 - financial_data - INFO - Successfully fetched price history data (242 records)
+2025-11-17 15:46:42 - financial_data - WARNING - Warning: The following indicators contain NaN values:
+2025-11-17 15:46:42 - financial_data - WARNING - 
+momentum_1m: 20 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+momentum_3m: 60 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+momentum_6m: 120 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+volume_ma20: 19 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+volume_momentum: 19 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+historical_volatility: 20 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+volatility_z_score: 139 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+atr: 13 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+atr_ratio: 13 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+hurst_exponent: 242 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+skewness: 20 records
+2025-11-17 15:46:42 - financial_data - WARNING - 
+kurtosis: 20 records

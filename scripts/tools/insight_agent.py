@@ -108,9 +108,25 @@ def find_latest_market_csv_for_ticker(base_dir: str, ticker: str) -> Optional[st
 def load_sentiment_json(path: str) -> SentimentSummary:
     with open(path, "r", encoding="utf-8") as f:
         raw = json.load(f)
-    # allow older formats where stock_code may be missing -> try to fill
-    if "stock_code" not in raw and "analysis_date" in raw:
+
+    # Ensure stock_code exists (fallback if missing)
+    if "stock_code" not in raw:
         raw["stock_code"] = raw.get("stock_code", "unknown")
+
+    # Clean up time_series_sentiment so Pydantic doesn't choke on None
+    ts = raw.get("time_series_sentiment")
+    if isinstance(ts, dict):
+        # Keep only numeric values; drop None or weird types
+        cleaned = {
+            k: float(v)
+            for k, v in ts.items()
+            if isinstance(v, (int, float))
+        }
+        # If nothing valid remains, set it to None
+        raw["time_series_sentiment"] = cleaned if cleaned else None
+    else:
+        raw["time_series_sentiment"] = None
+
     return SentimentSummary(**raw)
 
 
