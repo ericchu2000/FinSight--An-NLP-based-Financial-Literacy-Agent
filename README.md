@@ -44,6 +44,13 @@ playwright install chromium  # 必须手动执行
 一定要**确保**将llm_config_template.py更名(rename)为llm_config.py，并在其中置入正确的openai api key，否则将报错
 
 ---
+
+## 前端Chat Bot运行指令
+```
+python -m scripts.ui.gradio_app
+```
+随后通过点击控制台输出的网址进入前端demo
+
 ## 快速指令（从项目根目录 nlp_project_data_prepare 执行）
 
 ### 1. Generate market CSV (technical indicator file)
